@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import cssModules from 'react-css-modules';
-import styles from './style.css';
+import './style.css';
 
 function Logo() {
   return (
@@ -9,4 +8,4 @@ function Logo() {
   );
 }
 
-export default cssModules(Logo, styles);
+export default Logo;

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import cssModules from 'react-css-modules';
 
-import styles from './style.css';
+import './style.css';
 
 const propTypes = {
   title: PropTypes.string.isRequired,
@@ -33,4 +32,4 @@ class Panel extends Component {
 
 Panel.propTypes = propTypes;
 
-export default cssModules(Panel, styles);
+export default Panel;

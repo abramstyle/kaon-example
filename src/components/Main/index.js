@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import cssModules from 'react-css-modules';
 
 import Header from '../Header';
 import Posts from '../../containers/Posts';
 import Comments from '../../containers/Comments';
 import Profile from '../../containers/Profile';
 
-import styles from './style.css';
+import './style.css';
 
 class Main extends Component {
   constructor(props) {
@@ -30,4 +29,4 @@ class Main extends Component {
   }
 }
 
-export default cssModules(Main, styles);
+export default Main;

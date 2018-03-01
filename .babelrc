@@ -8,5 +8,10 @@
       }
     }],
   ],
-  "plugins": ["react-hot-loader/babel"]
+  "plugins": [
+    "react-hot-loader/babel",
+    ["react-css-modules", {
+      "generateScopedName": "[name]__[local]___[hash:base64:5]"
+    }]
+  ]
 }
