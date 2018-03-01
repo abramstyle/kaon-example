@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import { hot } from 'react-hot-loader';
+import { hot } from 'react-hot-loader';
 import 'normalize.css';
 import Main from '../../components/Main';
 import Html from '../../components/Html';
@@ -39,5 +39,5 @@ App.getInitialProps = () => {
   console.log('get initial props.');
 };
 
-export default App;
-// export default hot(module)(App);
+// export default App;
+export default hot(module)(App);
