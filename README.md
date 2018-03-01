@@ -19,7 +19,7 @@ Start your development ASAP.
 additionally, more ability with packages below:
 
 - kl-i18n internationalization support
-- kl-loggers logstash compatiable log system
+- kl-loggers logstash compatible log system
 - kl-redis cache support
 
 ## start up
