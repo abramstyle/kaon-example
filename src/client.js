@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { AppContainer } from 'react-hot-loader';
+// import { AppContainer } from 'react-hot-loader';
 // AppContainer is a necessary wrapper component for HMR
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -11,15 +11,13 @@ import App from './containers/App';
 
 const render = () => {
   ReactDOM.hydrate(
-    <AppContainer>
-      <Provider store={store}>
-        <Router>
-          <App
-            state={preloadedState}
-          />
-        </Router>
-      </Provider>
-    </AppContainer>,
+    <Provider store={store}>
+      <Router>
+        <App
+          state={preloadedState}
+        />
+      </Router>
+    </Provider>,
     document.getRootNode(),
   );
 };
@@ -27,8 +25,8 @@ const render = () => {
 render();
 
 // Hot Module Replacement API
-if (module.hot) {
-  module.hot.accept(() => {
-    render();
-  });
-}
+// if (module.hot) {
+//   module.hot.accept(() => {
+//     render();
+//   });
+// }
