@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import cssModules from 'react-css-modules';
 
 
 import Panel from '../../components/Panel';
 import PostList from '../../components/PostList';
-import { LOADING_STATES } from '../../constants';
 
 import * as postActionCreators from '../../actions/posts';
 import styles from './style.css';
@@ -98,4 +96,4 @@ function mapDispatchToProps(dispatch) {
 
 Posts.propTypes = propTypes;
 
-export default connect(mapStateToProps, mapDispatchToProps)(cssModules(Posts, styles));
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);

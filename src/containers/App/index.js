@@ -40,3 +40,4 @@ App.getInitialProps = () => {
 };
 
 export default App;
+// export default hot(module)(App);

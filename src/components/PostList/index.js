@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cssModules from 'react-css-modules';
 
 import PostItem from './PostItem';
-import styles from './style.css';
+import './style.css';
 
 const propTypes = {
   posts: PropTypes.object.isRequired,
@@ -39,4 +38,4 @@ function PostItems(props) {
 
 PostItems.propTypes = propTypes;
 
-export default cssModules(PostItems, styles);
+export default PostItems;

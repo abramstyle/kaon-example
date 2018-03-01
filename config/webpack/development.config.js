@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { resolve } = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const serverHost = process.env.SERVER_HOST || 'localhost';
 const serverPort = process.env.SERVER_PORT || 1592;

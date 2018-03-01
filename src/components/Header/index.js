@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import cssModules from 'react-css-modules';
 // import PropTypes from 'prop-types';
 import Logo from '../Logo';
 
-import styles from './style.css';
+import './style.css';
 
 function Header() {
   return (
@@ -23,4 +22,4 @@ function Header() {
   );
 }
 
-export default cssModules(Header, styles);
+export default Header;
