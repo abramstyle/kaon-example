@@ -1,6 +1,9 @@
 const renderHtml = (data) => {
-  const assets = Object.keys(data.assets)
-    .map(key => `<script src=${data.assets[key]}></script>`)
+  // const assets = Object.keys(data.assets)
+  //   .map(key => `<script src="${data.assets[key]}"></script>`)
+  //   .join('');
+  const bundles = data.bundles
+    .map(bundle => `<script src="${bundle}"></script>`)
     .join('');
 
   return `
@@ -18,7 +21,10 @@ const renderHtml = (data) => {
             <script>
               window.__PRELOADED_STATE__ = ${data.state}
             </script>
-            ${assets}
+            <script src="${data.assets.manifest}"></script>
+            <script src="${data.assets.commons}"></script>
+            ${bundles}
+            <script src="${data.assets.app}"></script>
             ${data.helmet.script}
         </body>
     </html>
