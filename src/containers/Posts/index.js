@@ -4,11 +4,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 
+import Helmet from 'react-helmet';
 import Panel from '../../components/Panel';
 import PostList from '../../components/PostList';
 
 import * as postActionCreators from '../../actions/posts';
-import styles from './style.css';
+import './style.css';
 
 const propTypes = {
   postActions: PropTypes.object.isRequired,
@@ -68,6 +69,12 @@ class Posts extends Component {
         <Panel
           title="Posts"
         >
+          <Helmet>
+            <html lang="zh-CH" country="cn" />
+            <title>Posts - Cybertron</title>
+            <meta name="keywords" content="posts,cybertron,isomorphic" />
+            <meta name="description" content="cybertron renders your components from server." />
+          </Helmet>
           <PostList posts={posts} />
           <button
             styleName="load-more"

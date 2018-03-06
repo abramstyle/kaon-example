@@ -9,6 +9,7 @@ webpack-assets.json
 .env
 yarn-error.log
 log/*
+build/*
 .happypack/
 newrelic_agent.log
 dump.rdb
