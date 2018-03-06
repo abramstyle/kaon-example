@@ -3,6 +3,7 @@ const { resolve } = require('path');
 const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
+const { ReactLoadablePlugin } = require('react-loadable/webpack');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const serverHost = process.env.SERVER_HOST || 'localhost';
@@ -143,6 +144,9 @@ const config = env => ({
       // this assumes your vendor imports exist in the node_modules directory
         return module.context && module.context.indexOf('node_modules') !== -1;
       },
+    }),
+    new ReactLoadablePlugin({
+      filename: './build/react-loadable.json',
     }),
     new webpack.DefinePlugin({
       'process.env.APP_ENV': JSON.stringify(env),

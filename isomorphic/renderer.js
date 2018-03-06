@@ -10,12 +10,21 @@ const renderer = {
       app: manifest['app.js'],
     };
 
-    const { html, state, helmet } = await server(ctx);
+    const {
+      html, state, helmet, bundles,
+    } = await server(ctx);
     const allAttributes = Object.keys(helmet).reduce((attributes, key) => {
       attributes[key] = (helmet[key] || {}).toString();
 
       return attributes;
     }, {});
+
+    const cdnPath = 'http://localhost:1592/';
+
+    // add cdn path to bundles
+    const bundlesWithHosts = bundles
+      .filter(bundle => bundle.file.endsWith('.js'))
+      .map(bundle => `${cdnPath}${bundle.file}`);
 
     const lang = 'lang="zh-CN"';
 
@@ -27,6 +36,7 @@ const renderer = {
       lang,
       state: JSON.stringify(state),
       helmet: allAttributes,
+      bundles: bundlesWithHosts,
     });
 
     return result;

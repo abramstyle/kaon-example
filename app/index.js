@@ -5,6 +5,7 @@ function generateApp() {
   const views = require('koa-views');
   const favicon = require('koa-favicon');
   const path = require('path');
+  const Loadable = require('react-loadable');
 
   require('css-modules-require-hook')({
     generateScopedName: '[name]__[local]___[hash:base64:5]',
@@ -34,8 +35,10 @@ function generateApp() {
 
     routes(app);
 
-    app.listen(config.app.port, () => {
-      console.log('%s served on port %s', config.app.name, config.app.port);
+    Loadable.preloadAll().then(() => {
+      app.listen(config.app.port, () => {
+        console.log('%s served on port %s', config.app.name, config.app.port);
+      });
     });
   };
 }
