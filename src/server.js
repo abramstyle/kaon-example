@@ -5,6 +5,7 @@ import ReactDOMServer from 'react-dom/server';
 import { StaticRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { matchRoutes } from 'react-router-config';
+import Helmet from 'react-helmet';
 
 import configureStore from './store/configureStore';
 import App from './containers/App';
@@ -44,7 +45,14 @@ const render = async (ctx) => {
     </Provider>
   );
 
-  return ReactDOMServer.renderToString(Container);
+  const html = ReactDOMServer.renderToString(Container);
+  const helmet = Helmet.renderStatic();
+
+  return {
+    html,
+    state,
+    helmet,
+  };
 };
 
 export default render;

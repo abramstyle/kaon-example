@@ -6,12 +6,13 @@
   "repository": "https://abramstyle@git.gtdji.com/ops-admin/smurf-client.git",
   "author": "Abram.Zhao <abram.zhao@dji.com>",
   "scripts": {
-    "server": "nodemon server",
-    "dev": "webpack-dev-server --env=development --progress --colors"
+    "server": "NODE_ENV=development nodemon server",
+    "dev": "NODE_ENV=development webpack-dev-server --env=development --progress --colors",
+    "build:server": "webpack --config config/webpack/server.config.js --watch --env=development --progress --colors"
   },
   "license": "MIT",
   "dependencies": {
-    "@abramstyle/redux-api": "^0.1.7",
+    "@abramstyle/redux-api": "^0.1.11",
     "babel-plugin-react-css-modules": "^3.3.3",
     "babel-register": "^6.26.0",
     "classnames": "^2.2.5",
@@ -33,6 +34,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-helmet": "^5.2.0",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-config": "^1.0.0-beta.4",
@@ -48,10 +50,12 @@
     "babel-eslint": "^8.1.2",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-airbnb-base": "^12.1.0",
@@ -67,6 +71,8 @@
     "pug-loader": "^2.3.0",
     "react-hot-loader": "^4.0.0",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.9.7"
+    "webpack-dev-server": "^2.9.7",
+    "webpack-manifest-plugin": "^2.0.0-rc.2",
+    "write-file-webpack-plugin": "^4.2.0"
   }
 }

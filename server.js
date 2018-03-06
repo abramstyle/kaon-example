@@ -1,8 +1,8 @@
-require('babel-polyfill');
-require('babel-register')({
-  plugins: ['transform-es2015-modules-commonjs'],
-  // ignore: '/app',
-});
+// require('babel-polyfill');
+// require('babel-register')({
+//   plugins: ['transform-es2015-modules-commonjs'],
+//   // ignore: '/app',
+// });
 
 const dotenv = require('dotenv');
 const app = require('./app');

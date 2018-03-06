@@ -1,6 +1,8 @@
 require('dotenv').config();
 const { resolve } = require('path');
 const webpack = require('webpack');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const WriteFilePlugin = require('write-file-webpack-plugin');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const serverHost = process.env.SERVER_HOST || 'localhost';
@@ -24,7 +26,7 @@ const config = env => ({
     filename: '[name].js',
     // the output bundle
 
-    path: resolve(__dirname, './build'),
+    path: resolve(__dirname, '../../build'),
 
     publicPath: `http://${serverHost}:${serverPort}/`,
     // necessary for HMR to know where to load the hot update chunks
@@ -123,6 +125,12 @@ const config = env => ({
   },
 
   plugins: [
+    new ManifestPlugin(),
+    new WriteFilePlugin({
+    // Write only files that have ".css" extension.
+      test: /\.json/,
+      useHashIndex: true,
+    }),
     new webpack.HotModuleReplacementPlugin(),
     // enable HMR globally
 

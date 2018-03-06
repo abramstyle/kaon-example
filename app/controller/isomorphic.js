@@ -1,11 +1,11 @@
 function isomorphicController() {
   // const render = require('../../isomorphic/renderer');
-  const renderMarkup = require('../../src/server').default;
+  const renderer = require('../../isomorphic/renderer');
 
   return {
     async page(ctx) {
       // const page = await render();
-      const markup = await renderMarkup(ctx);
+      const markup = await renderer.render(ctx);
       ctx.body = markup;
       ctx.status = 200;
     },

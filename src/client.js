@@ -6,19 +6,17 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import store, { preloadedState } from './store';
+import store from './store';
 import App from './containers/App';
 
 const render = () => {
   ReactDOM.hydrate(
     <Provider store={store}>
       <Router>
-        <App
-          state={preloadedState}
-        />
+        <App />
       </Router>
     </Provider>,
-    document.getRootNode(),
+    document.querySelector('#root'),
   );
 };
 
