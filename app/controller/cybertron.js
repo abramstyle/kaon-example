@@ -1,8 +1,7 @@
 function cybertronController() {
   return {
     async index(ctx) {
-      console.log('index page.');
-      await ctx.render('index.pug');
+      ctx.body = 'Cybertron is the home planet of the Transformers and (usually) the body of their creator, Primus. ';
     },
   };
 }
