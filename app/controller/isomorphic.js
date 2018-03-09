@@ -1,6 +1,6 @@
 function isomorphicController() {
   // const render = require('../../isomorphic/renderer');
-  const renderer = require('../../isomorphic/renderer');
+  const renderer = require('../../cybertron/lib/isomorphic');
 
   return {
     async page(ctx) {
