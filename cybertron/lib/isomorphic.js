@@ -1,8 +1,10 @@
-const { default: server } = require('../build/main');
-const render = require('./template');
+const getRenderer = () => {
+  // invalidate cache and require fresh cache
+  delete require.cache[require.resolve('../build/main')];
+  const { default: server } = require('../build/main');
+  const render = require('./template');
 
-const renderer = {
-  async render(ctx) {
+  return async (ctx) => {
     const manifest = {
     };
     // if (__DEV__) {
@@ -17,6 +19,7 @@ const renderer = {
     // }
 
     const assets = {
+      manifest: manifest['manifest.js'],
       commons: manifest['commons.js'],
       app: manifest['app.js'],
     };
@@ -30,7 +33,7 @@ const renderer = {
       return attributes;
     }, {});
 
-    const cdnPath = 'http://localhost:8081/';
+    const cdnPath = 'http://localhost:1592/';
 
     // add cdn path to bundles
     const bundlesWithHosts = bundles
@@ -41,7 +44,7 @@ const renderer = {
 
     // FIXME: DO Some security thing to ensure only escaped string will be rendered
 
-    const result = await render({
+    return render({
       assets,
       html,
       lang,
@@ -49,9 +52,7 @@ const renderer = {
       helmet: allAttributes,
       bundles: bundlesWithHosts,
     });
-
-    return result;
-  },
+  };
 };
 
-module.exports = renderer;
+module.exports = getRenderer;

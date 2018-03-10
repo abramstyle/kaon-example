@@ -10,7 +10,7 @@ const serverHost = process.env.SERVER_HOST || 'localhost';
 const serverPort = process.env.SERVER_PORT || 1592;
 
 const config = env => ({
-  // mode: 'development',
+  mode: 'development',
   entry: {
     app: [
       'react-hot-loader/patch',
@@ -148,13 +148,6 @@ const config = env => ({
 
     new webpack.NamedModulesPlugin(),
     // prints more readable module names in the browser console on HMR updates
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['commons', 'manifest'],
-      minChunks(module) {
-      // this assumes your vendor imports exist in the node_modules directory
-        return module.context && module.context.indexOf('node_modules') !== -1;
-      },
-    }),
 
     new ReactLoadablePlugin({
       filename: resolve(__dirname, '../build/react-loadable.json'),

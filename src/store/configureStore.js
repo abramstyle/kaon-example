@@ -4,7 +4,7 @@
 import { applyMiddleware, compose, createStore } from 'redux';
 import reduxAPIGenerator from '@abramstyle/redux-api';
 
-import reducers from '../reducers';
+import generateReducers from '../reducers';
 
 const api = reduxAPIGenerator();
 
@@ -16,6 +16,6 @@ const middlewares = [
 
 const composeEnhancers = root.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const configureStore = preloadedState => createStore(reducers, preloadedState, composeEnhancers(applyMiddleware(...middlewares)));
+const configureStore = preloadedState => createStore(generateReducers(), preloadedState, composeEnhancers(applyMiddleware(...middlewares)));
 
 export default configureStore;

@@ -21,6 +21,7 @@ const renderHtml = (data) => {
             <script>
               window.__PRELOADED_STATE__ = ${data.state}
             </script>
+            <script src="${data.assets.manifest}"></script>
             <script src="${data.assets.commons}"></script>
             ${bundles}
             <script src="${data.assets.app}"></script>

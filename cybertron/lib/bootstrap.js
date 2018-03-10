@@ -5,8 +5,6 @@ envHelper.config();
 dotenv.config();
 // envHelper.config();
 
-const startServer = require('./server');
-
 const bootstrap = () => {
   const getCompiler = require('./compiler');
   const serverConfig = require('../config/server.config');
@@ -14,6 +12,8 @@ const bootstrap = () => {
 
   // const serverRun = serverCompiler.asyncRun();
   // const clientRun = clientCompiler.asyncRun();
+
+  const startServer = require('./server');
 
   console.log('compiling assets.');
   let server = null;
