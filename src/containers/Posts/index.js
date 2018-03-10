@@ -1,23 +1,41 @@
 import React from 'react';
 import Loadable from 'react-loadable';
+import PropTypes from 'prop-types';
 import * as postActionCreators from '../../actions/posts';
+import reducers from './reducers';
+import generateReducers from '../../reducers';
+
+const nextReducer = generateReducers(reducers);
 
 const LoadablePosts = Loadable({
-  /* webpackChunkName: "[request]" */
   loader: () => import('./Posts'),
   loading() {
-    return <div>Loading...</div>;
+    return <div>Loading Post Component...</div>;
+  },
+  render(loaded, props) {
+    const { store } = props;
+    store.replaceReducer(nextReducer);
+    // console.log('replace reducer.');
+    const Component = loaded.default;
+    return <Component />;
   },
 });
 
-function Posts() {
-  return <LoadablePosts />;
+function Posts(props, context) {
+  const { store } = context;
+  return <LoadablePosts store={store} />;
 }
+
+Posts.contextTypes = {
+  store: PropTypes.object,
+};
 
 Posts.getInitialProps = dispatch => dispatch(postActionCreators.fetchPosts({
   _page: 1,
   _limit: 5,
 }));
+
+Posts.nextReducer = nextReducer;
 
 
 export default Posts;

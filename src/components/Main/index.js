@@ -19,7 +19,6 @@ class Main extends Component {
       <div styleName="main">
         <Header />
         <Switch>
-          <Route path="/" component={Posts} />
           <Route path="/posts" component={Posts} />
           <Route path="/comments" component={Comments} />
           <Route path="/profile" component={Profile} />

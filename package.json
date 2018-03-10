@@ -73,8 +73,9 @@
     "react-hot-loader": "^4.0.0",
     "style-loader": "^0.19.1",
     "url-loader": "^0.6.2",
-    "webpack": "^4.1.1",
+    "webpack": "3.11.0",
     "webpack-cli": "^2.0.10",
+    "webpack-dev-server": "2.11.2",
     "webpack-manifest-plugin": "^2.0.0-rc.2",
     "write-file-webpack-plugin": "^4.2.0"
   }

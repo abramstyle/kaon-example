@@ -10,7 +10,7 @@ import '../../styles/basic.css';
 const propTypes = {
 };
 
-function App() {
+function App(props, context) {
   return (
     <Main />
   );

@@ -8,7 +8,7 @@ import Helmet from 'react-helmet';
 import Panel from '../../components/Panel';
 import PostList from '../../components/PostList';
 
-import * as postActionCreators from '../../actions/posts';
+import * as postActionCreators from './actions/posts';
 import './style.css';
 
 const propTypes = {

@@ -1,9 +1,15 @@
 import { combineReducers } from 'redux';
 
-import posts from './posts';
+import users from './users';
+import localization from './localization';
+// import posts from './posts';
 
-const reducers = combineReducers({
-  posts,
+const generateReducers = (reducers = {}) => combineReducers({
+  // posts,
+  users,
+  localization,
+  // posts,
+  ...reducers,
 });
 
-export default reducers;
+export default generateReducers;

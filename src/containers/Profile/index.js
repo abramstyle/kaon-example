@@ -25,8 +25,17 @@ class Profile extends Component {
     return (
       <div className="posts">
         <Panel
-          title="Posts"
-        />
+          title="Profile"
+        >
+          <table>
+            <tbody>
+              <tr>
+                <td>Name</td>
+                <td>Abram</td>
+              </tr>
+            </tbody>
+          </table>
+        </Panel>
       </div>
     );
   }

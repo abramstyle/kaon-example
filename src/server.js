@@ -27,9 +27,15 @@ const render = async (ctx) => {
   const subMatched = subBranch[0] || {};
   const { route: { component: subComponent } } = subMatched;
 
-  if (subComponent && subComponent.getInitialProps) {
-    await subComponent.getInitialProps(store.dispatch);
+  if (subComponent) {
+    if (subComponent.nextReducer) {
+      store.replaceReducer(subComponent.nextReducer);
+    }
+    if (subComponent.getInitialProps) {
+      await subComponent.getInitialProps(store.dispatch);
+    }
   }
+
 
   const state = store.getState();
   const modules = [];
@@ -47,7 +53,9 @@ const render = async (ctx) => {
     </Loadable.Capture>
   );
 
+  console.log('prepare render html.');
   const html = ReactDOMServer.renderToString(Container);
+  console.log('server render complete.');
   const helmet = Helmet.renderStatic();
 
   const bundles = getBundles(stats, modules);
@@ -57,6 +65,7 @@ const render = async (ctx) => {
     state,
     helmet,
     bundles,
+    store,
   };
 };
 
