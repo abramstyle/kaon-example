@@ -8,7 +8,7 @@ import { matchRoutes } from 'react-router-config';
 import Helmet from 'react-helmet';
 import Loadable from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
-import stats from '../build/react-loadable.json';
+import stats from '../cybertron/build/react-loadable.json';
 
 import configureStore from './store/configureStore';
 import App from './containers/App';
@@ -29,7 +29,7 @@ const render = async (ctx) => {
 
   if (subComponent) {
     if (subComponent.nextReducer) {
-      store.replaceReducer(subComponent.nextReducer);
+      await store.replaceReducer(subComponent.nextReducer);
     }
     if (subComponent.getInitialProps) {
       await subComponent.getInitialProps(store.dispatch);

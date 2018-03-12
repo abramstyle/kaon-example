@@ -34,4 +34,7 @@ function posts(state = initialState, action = {}) {
   }
 }
 
-export default posts;
+export {
+  initialState,
+  posts as default,
+};

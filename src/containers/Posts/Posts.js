@@ -17,36 +17,11 @@ const propTypes = {
 };
 
 class Posts extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-
-    this.handleClickLoadMore = this.handleClickLoadMore.bind(this);
-  }
-
-  static getInitialProps(dispatch) {
-    return dispatch(postActionCreators.fetchPosts({
-      _page: 1,
-      _limit: 5,
-    }));
-  }
-
-  componentWillMount() {
-    if (typeof window === 'undefined') {
-      // do some validation
-    }
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {};
   //
-  // async componentDidMount() {
-  //   return this.loadPosts();
-  // }
-  //
-  // componentWillReceiveProps(nextProps) {
-  //   const { posts: nextPosts } = nextProps;
-  //   const { postActions, posts } = this.props;
-  //   if ((nextPosts.get('loadingState') === LOADING_STATES.SUCCESS) && (posts.get('page') === nextPosts.get('page'))) {
-  //     postActions.updatePostsPage(parseInt(posts.get('page'), 10) + 1);
-  //   }
+  //   this.handleClickLoadMore = this.handleClickLoadMore.bind(this);
   // }
 
   loadPosts() {

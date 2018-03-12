@@ -2771,6 +2771,10 @@ eslint-module-utils@^2.1.1:
     debug "^2.6.8"
     pkg-dir "^1.0.0"
 
+eslint-plugin-immutable@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/eslint-plugin-immutable/-/eslint-plugin-immutable-1.0.0.tgz#4fe5839836be9809e08bac00cb7ce10e4b8e4821"
+
 eslint-plugin-import@^2.7.0:
   version "2.9.0"
   resolved "https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.9.0.tgz#26002efbfca5989b7288ac047508bd24f217b169"
