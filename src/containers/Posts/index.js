@@ -12,6 +12,7 @@ const LoadablePosts = Loadable({
   loading() {
     return <div>Loading Post Component...</div>;
   },
+
   render(loaded, props) {
     const { store } = props;
     store.replaceReducer(nextReducer);

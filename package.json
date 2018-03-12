@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "React boilerplate",
   "main": "index.js",
-  "repository": "https://abramstyle@git.gtdji.com/ops-admin/smurf-client.git",
+  "repository": "https://github.com/abramstyle/cybertron",
   "author": "Abram.Zhao <abram.zhao@dji.com>",
   "scripts": {
     "debug": "NODE_ENV=development node ./cybertron",

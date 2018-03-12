@@ -1,11 +1,14 @@
 const dotenv = require('dotenv');
 const envHelper = require('../helpers/env');
+const loadConfig = require('../helpers/loadConfig');
 
 envHelper.config();
 dotenv.config();
 // envHelper.config();
 
-const bootstrap = () => {
+const bootstrap = (options) => {
+  const { configPath } = options;
+  const config = loadConfig(configPath);
   const getCompiler = require('./compiler');
   const serverConfig = require('../config/server.config');
   const serverCompiler = getCompiler(serverConfig);
@@ -23,13 +26,13 @@ const bootstrap = () => {
     console.log('server compiling success.');
     if (server) {
       server.close(() => {
-        startServer().then((startedServer) => {
+        startServer(config).then((startedServer) => {
           console.log('server is reloaded.');
           server = startedServer;
         });
       });
     } else {
-      startServer().then((startedServer) => {
+      startServer(config).then((startedServer) => {
         server = startedServer;
       });
     }
