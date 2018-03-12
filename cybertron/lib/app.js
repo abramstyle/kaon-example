@@ -1,4 +1,4 @@
-async function generateApp({ config, routes }) {
+async function generateApp({ appConfig, config, routes }) {
   const Koa = require('koa');
   const bodyParser = require('koa-bodyparser');
   const koaLogger = require('koa-logger');
@@ -17,7 +17,9 @@ async function generateApp({ config, routes }) {
 
   const app = new Koa();
 
-  app.keys = config.app.keys;
+  app.context.config = config;
+
+  app.keys = appConfig.app.keys;
 
   // if (__DEV__) {
   //   const koaWebpack = require('koa-webpack');
@@ -50,8 +52,8 @@ async function generateApp({ config, routes }) {
 
   await Loadable.preloadAll();
 
-  return app.listen(config.app.port, () => {
-    console.log('%s served on port %s', config.app.name, config.app.port);
+  return app.listen(appConfig.app.port, () => {
+    console.log('%s served on port %s', appConfig.app.name, appConfig.app.port);
   });
 }
 

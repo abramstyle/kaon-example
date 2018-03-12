@@ -1,4 +1,4 @@
-const startServer = async () => {
+const startServer = async (config) => {
   const app = require('../lib/app');
   // const envHelper = require('./helpers/env');
 
@@ -10,7 +10,8 @@ const startServer = async () => {
   // }
 
   const server = await app({
-    config: appConfig,
+    appConfig,
+    config,
     routes,
   });
 

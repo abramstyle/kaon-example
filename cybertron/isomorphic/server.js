@@ -4,38 +4,27 @@ import ReactDOMServer from 'react-dom/server';
 // AppContainer is a necessary wrapper component for HMR
 import { StaticRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { matchRoutes } from 'react-router-config';
+import { renderRoutes } from 'react-router-config';
 import Helmet from 'react-helmet';
 import Loadable from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
-import stats from '../cybertron/build/react-loadable.json';
 
-import configureStore from './store/configureStore';
-import App from './containers/App';
-import routes from './routes';
+import stats from '../build/react-loadable.json';
+import prefetch from '../utils/prefetch';
+
+import configureStore from '../../src/store/configureStore';
+import routes from '../../src/routes';
 
 const render = async (ctx) => {
-  const context = {};
+  // const context = {};
   const store = configureStore();
+  const context = {};
 
-  const branch = matchRoutes(routes, ctx.url);
-
-  const matched = branch[0] || {};
-  const { route: { component, routes: subRoutes } } = matched;
-
-  const subBranch = matchRoutes(subRoutes, ctx.url);
-  const subMatched = subBranch[0] || {};
-  const { route: { component: subComponent } } = subMatched;
-
-  if (subComponent) {
-    if (subComponent.nextReducer) {
-      await store.replaceReducer(subComponent.nextReducer);
-    }
-    if (subComponent.getInitialProps) {
-      await subComponent.getInitialProps(store.dispatch);
-    }
-  }
-
+  await prefetch({
+    routes,
+    url: ctx.url,
+    store,
+  });
 
   const state = store.getState();
   const modules = [];
@@ -47,15 +36,13 @@ const render = async (ctx) => {
           location={ctx.url}
           context={context}
         >
-          <App />
+          {renderRoutes(routes)}
         </Router>
       </Provider>
     </Loadable.Capture>
   );
 
-  console.log('prepare render html.');
   const html = ReactDOMServer.renderToString(Container);
-  console.log('server render complete.');
   const helmet = Helmet.renderStatic();
 
   const bundles = getBundles(stats, modules);

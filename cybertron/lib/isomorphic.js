@@ -7,8 +7,9 @@ const getRenderer = () => {
   return async (ctx) => {
     const manifest = {
     };
+    const { app: { context: { config } } } = ctx;
     // if (__DEV__) {
-      // const stats = ctx.state.webpackStats.toJson();
+    // const stats = ctx.state.webpackStats.toJson();
     //   const { publicPath, assets } = stats;
     //
     //   assets.forEach((item) => {

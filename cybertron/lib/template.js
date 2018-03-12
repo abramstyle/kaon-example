@@ -1,8 +1,5 @@
-const renderHtml = (data) => {
-  // const assets = Object.keys(data.assets)
-  //   .map(key => `<script src="${data.assets[key]}"></script>`)
-  //   .join('');
-  const bundles = data.bundles
+const renderHtml = (data = {}) => {
+  const bundles = (data.bundles || [])
     .map(bundle => `<script src="${bundle}"></script>`)
     .join('');
 

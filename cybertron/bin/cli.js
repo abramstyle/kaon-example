@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const r = require('yargs').usage('$0 <cmd> [args]')
+const r = require('yargs').usage('cybertron <cmd> [args]')
   .command('start [options]', 'Welcome to args!', (yargs) => {
     yargs.positional('options', {
       type: 'string',
