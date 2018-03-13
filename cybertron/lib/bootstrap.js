@@ -56,15 +56,6 @@ const bootstrap = (options) => {
   process.once('SIGINT', cleanUpAndExit);
   process.once('SIGTERM', cleanUpAndExit);
   process.once('SIGHUP', cleanUpAndExit);
-  // Promise.all([serverRun, clientRun]).then(() => {
-  // // const serverWatching = serverCompiler.watch();
-  //   console.log('assets compiling success.');
-  //
-  //   const serverWatching = serverCompiler.wat  ch({}, () => {});
-  //   // const clientWatching = clientCompiler.watch({}, (err, stats) => {
-  //   //   server();
-  //   // });
-  // });
 };
 
 module.exports = bootstrap;

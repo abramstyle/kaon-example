@@ -1,6 +1,36 @@
+const path = require('path');
+
+const { env } = process;
+
 const config = {
-  routes: '../src/routes',
-  store: '../src/store/configureStore',
+  app: {
+    name: `Heimdallr (${env.NODE_ENV})`,
+    shortName: 'cybertron',
+    port: env.SERVER_PORT || 1827,
+    keys: [env.APP_KEY],
+    routes: path.resolve(__dirname, '../app/routes'),
+    middlewares: path.resolve(__dirname, '../app/middlewares'),
+  },
+  resources: {
+    root: path.resolve(__dirname, '../public'),
+  },
+  logs: {
+    path: path.resolve('logs'),
+    logname: `logstash_cybertron-${env.NODE_ENV}`,
+  },
+  cache: {
+    redisCacheAlive: parseInt(env.REDIS_CACHE_ALIVE, 10),
+    memoryCacheAlive: parseInt(env.MEMORY_CACHE_ALIVE, 10),
+    validStatus: [200, 304],
+    validMethods: ['GET'],
+  },
+  isomorphic: {
+    routes: path.resolve(__dirname, '../src/routes'),
+    store: path.resolve(__dirname, '../src/store/configureStore'),
+  },
+  build: {
+    webpack: path.resolve(__dirname, './webpack.config.js'),
+  },
 };
 
 module.exports = config;
