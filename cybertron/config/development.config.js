@@ -110,6 +110,14 @@ const config = env => ({
         },
       }, {
         loader: 'postcss-loader',
+        options: {
+          config: {
+            path: resolve(__dirname, '../../config/postcss.config.js'),
+            context: {
+              env,
+            },
+          },
+        },
       }],
     }, {
       test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
