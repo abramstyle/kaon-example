@@ -7,11 +7,27 @@ dotenv.config();
 // envHelper.config();
 
 const bootstrap = (options) => {
+  const { env: { NODE_ENV } } = process;
   const { configPath } = options;
   const config = loadConfig(configPath);
   const getCompiler = require('./compiler');
   const serverConfig = require('../config/server.config');
   const serverCompiler = getCompiler(serverConfig);
+  const startDevServer = require('./dev-server');
+
+  let server = null;
+  let devServer = null;
+
+  if (__DEV__) {
+    const getClientConfig = require('../config/development.config');
+    let clientConfig = null;
+    if (typeof getClientConfig === 'function') {
+      clientConfig = getClientConfig(NODE_ENV);
+    } else {
+      clientConfig = getClientConfig;
+    }
+    devServer = startDevServer(clientConfig);
+  }
 
   // const serverRun = serverCompiler.asyncRun();
   // const clientRun = clientCompiler.asyncRun();
@@ -19,7 +35,6 @@ const bootstrap = (options) => {
   const startServer = require('./server');
 
   console.log('compiling assets.');
-  let server = null;
   const serverWatching = serverCompiler.watch({
     ignored: /build/,
   }, () => {
@@ -39,15 +54,21 @@ const bootstrap = (options) => {
   });
 
   const cleanUpAndExit = () => {
+    console.log('\n');
     // do something clean up
     if (server) {
       server.close(() => {
-        console.log('\nserver stopped.');
+        console.log('server stopped.');
       });
     }
     if (serverWatching) {
       serverWatching.close(() => {
-        console.log('\nserver watching is closed.');
+        console.log('server watching is closed.');
+      });
+    }
+    if (devServer) {
+      devServer.close(() => {
+        console.log('dev server is stopped.');
       });
     }
   };
