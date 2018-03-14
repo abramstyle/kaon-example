@@ -65,6 +65,7 @@ const config = env => ({
     },
 
     port: serverPort,
+    stats: 'errors-only',
   },
 
   resolve: {

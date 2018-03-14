@@ -41,6 +41,8 @@ const bootstrap = async (options) => {
     serverCompiler.on('compiled', () => {
       console.log('server compiling success.');
       server.run();
+      console.log('server is reloaded.');
+      console.log('open http://localhost:', config.app.port);
     });
 
     serverCompiler.watch({
