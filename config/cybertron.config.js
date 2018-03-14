@@ -4,7 +4,7 @@ const { env } = process;
 
 const config = {
   app: {
-    name: `Heimdallr (${env.NODE_ENV})`,
+    name: `Cybertron (${env.NODE_ENV})`,
     shortName: 'cybertron',
     port: env.SERVER_PORT || 1827,
     keys: [env.APP_KEY],

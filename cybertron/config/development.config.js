@@ -113,9 +113,6 @@ const config = env => ({
         options: {
           config: {
             path: resolve(__dirname, '../../config/postcss.config.js'),
-            context: {
-              env,
-            },
           },
         },
       }],
