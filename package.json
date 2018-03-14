@@ -14,6 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "@abramstyle/redux-api": "^0.1.11",
+    "@abramstyle/utils": "^0.8.13",
     "bluebird": "^3.5.1",
     "classnames": "^2.2.5",
     "css-modules-require-hook": "^4.2.3",
@@ -40,6 +41,7 @@
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "webpack-log": "^1.1.2",
+    "webpack-merge": "^4.1.2",
     "yargs": "^11.0.0"
   },
   "devDependencies": {

@@ -1,20 +1,62 @@
-const startServer = async (config) => {
-  const app = require('../lib/app');
-  // const envHelper = require('./helpers/env');
+const { objectUtils } = require('@abramstyle/utils');
+const Promise = require('bluebird');
 
-  /* eslint import/no-dynamic-require: 0 */
-  const routes = require(config.app.routes);
+class Server {
+  constructor(options) {
+    this.options = options;
+    this.app = require('./app');
+  }
 
+  async run(options) {
+    if (objectUtils.isObject(options)) {
+      this.options = options;
+    }
 
-  // if (__PROD__ || __RELEASE__) {
-  // }
+    if (this.server) {
+      return this.reload();
+    }
 
-  const server = await app({
-    config,
-    routes,
-  });
+    this.start();
 
-  return server;
-};
+    return this;
+  }
 
-module.exports = startServer;
+  async start() {
+    let routes = null;
+    try {
+      routes = require(this.options.app.routes);
+    } catch (e) {
+      console.warn('routes config found, bud load routes failed.');
+    }
+    this.server = await this.app({
+      config: this.options,
+      routes,
+    });
+    return this;
+  }
+
+  async reload() {
+    console.log('reload server');
+    if (this.server) {
+      await this.close();
+    }
+
+    this.start();
+
+    return this;
+  }
+
+  close() {
+    return new Promise((resolve) => {
+      if (this.server) {
+        this.server.close(() => {
+          resolve();
+          this.server = null;
+        });
+      }
+      resolve();
+    });
+  }
+}
+
+module.exports = Server;

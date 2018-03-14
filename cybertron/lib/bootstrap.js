@@ -1,82 +1,79 @@
 const dotenv = require('dotenv');
+const Promise = require('bluebird');
 const envHelper = require('../helpers/env');
 const loadConfig = require('../helpers/loadConfig');
+const loadBuildConfig = require('../utils/loadBuildConfig');
+const Compiler = require('./compiler');
 
 envHelper.config();
 dotenv.config();
 // envHelper.config();
 
-const bootstrap = (options) => {
-  const { env: { NODE_ENV } } = process;
+const bootstrap = async (options) => {
+  // const { env: { NODE_ENV: env } } = process;
   const { configPath } = options;
   const config = loadConfig(configPath);
-  const getCompiler = require('./compiler');
   const serverConfig = require('../config/server.config');
-  const serverCompiler = getCompiler(serverConfig);
-  const startDevServer = require('./dev-server');
+  const DevServer = require('./webpack-dev-server');
 
-  let server = null;
   let devServer = null;
 
-  if (__DEV__) {
-    const getClientConfig = require('../config/development.config');
-    let clientConfig = null;
-    if (typeof getClientConfig === 'function') {
-      clientConfig = getClientConfig(NODE_ENV);
-    } else {
-      clientConfig = getClientConfig;
-    }
-    devServer = startDevServer(clientConfig);
+  const serverCompiler = new Compiler(serverConfig);
+  const Server = require('./server');
+  const server = new Server(config);
+
+  if (__PROD__) {
+    await serverCompiler.run();
+    server.run();
   }
 
-  // const serverRun = serverCompiler.asyncRun();
-  // const clientRun = clientCompiler.asyncRun();
+  if (__DEV__) {
+    // start dev server in development mode
+    const webpackClientConfig = loadBuildConfig(config);
+    const clientCompiler = new Compiler(webpackClientConfig);
 
-  const startServer = require('./server');
+    console.log('waiting build client resources.');
+    await clientCompiler.run();
+    devServer = new DevServer(webpackClientConfig);
+    devServer.start();
 
-  console.log('compiling assets.');
-  const serverWatching = serverCompiler.watch({
-    ignored: /build/,
-  }, () => {
-    console.log('server compiling success.');
-    if (server) {
-      server.close(() => {
-        startServer(config).then((startedServer) => {
-          console.log('server is reloaded.');
-          server = startedServer;
-        });
-      });
-    } else {
-      startServer(config).then((startedServer) => {
-        server = startedServer;
-      });
-    }
-  });
+    // auto reload server in development mode
+    serverCompiler.on('compiled', () => {
+      console.log('server compiling success.');
+      server.run();
+    });
+
+    serverCompiler.watch({
+      ignored: /build/,
+    });
+  }
 
   const cleanUpAndExit = () => {
     console.log('\n');
     // do something clean up
+    const closing = [
+    ];
+
     if (server) {
-      server.close(() => {
-        console.log('server stopped.');
-      });
+      closing.push(server.close());
     }
-    if (serverWatching) {
-      serverWatching.close(() => {
-        console.log('server watching is closed.');
-      });
+    if (serverCompiler) {
+      closing.push(serverCompiler.close());
     }
     if (devServer) {
-      devServer.close(() => {
-        console.log('dev server is stopped.');
-      });
+      closing.push(devServer.close());
     }
+
+
+    Promise.all(closing).then(() => {
+      console.log('server closed.');
+      process.exit();
+    });
   };
 
-  process.once('SIGUSR2', cleanUpAndExit);
-  process.once('SIGINT', cleanUpAndExit);
-  process.once('SIGTERM', cleanUpAndExit);
-  process.once('SIGHUP', cleanUpAndExit);
+  ['SIGUSR2', 'SIGINT', 'SIGTERM', 'SIGHUP'].forEach((sig) => {
+    process.once(sig, cleanUpAndExit);
+  });
 };
 
 module.exports = bootstrap;

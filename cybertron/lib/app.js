@@ -32,8 +32,18 @@ async function generateApp({ config, routes }) {
   }));
   app.use(koaStatic(config.resources.root));
 
+  const getRenderer = require('../../cybertron/lib/isomorphic');
+  const render = getRenderer();
 
-  routes(app);
+  if (typeof routes === 'function') {
+    routes(app);
+  }
+
+  app.use(async (ctx) => {
+    const markup = await render(ctx);
+    ctx.body = markup;
+    ctx.status = 200;
+  });
 
   await Loadable.preloadAll();
 
