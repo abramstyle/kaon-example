@@ -1,17 +1,17 @@
-const getRenderer = () => {
+const getRenderer = (config) => {
   // invalidate cache and require fresh cache
+  if (__DEV__) {
+    delete require.cache[require.resolve(`${config.build.path}/main`)];
+  }
+
+  const { default: server } = require(`${config.build.path}/main`);
   const render = require('./template');
 
   return async (ctx) => {
-    const { config } = ctx;
-    if (__DEV__) {
-      delete require.cache[require.resolve(`${config.build.path}/main`)];
-    }
-
-    const { default: server } = require(`${config.build.path}/main`);
     const manifest = {
     };
     Object.assign(manifest, require(`${config.build.path}/manifest.json`));
+
 
     const assets = {
       manifest: manifest['manifest.js'],
@@ -21,7 +21,7 @@ const getRenderer = () => {
 
     const {
       html, state, helmet, bundles,
-    } = await server(ctx, config);
+    } = await server(ctx);
     const allAttributes = Object.keys(helmet).reduce((attributes, key) => {
       attributes[key] = (helmet[key] || {}).toString();
 
