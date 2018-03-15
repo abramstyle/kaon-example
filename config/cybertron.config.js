@@ -27,6 +27,7 @@ const config = {
   isomorphic: {
     routes: path.resolve(__dirname, '../src/routes'),
     store: path.resolve(__dirname, '../src/store/configureStore.js'),
+    main: path.resolve(__dirname, '../src/client'),
   },
   postcss: {
     path: path.resolve(__dirname, './postcss.config.js'),
