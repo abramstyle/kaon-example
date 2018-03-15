@@ -26,10 +26,16 @@ const config = {
   },
   isomorphic: {
     routes: path.resolve(__dirname, '../src/routes'),
-    store: path.resolve(__dirname, '../src/store/configureStore'),
+    store: path.resolve(__dirname, '../src/store/configureStore.js'),
+  },
+  postcss: {
+    path: path.resolve(__dirname, './postcss.config.js'),
   },
   build: {
+    host: 'localhost',
+    port: 1592,
     webpack: path.resolve(__dirname, './webpack.config.js'),
+    path: path.resolve(__dirname, '../build'),
   },
 };
 

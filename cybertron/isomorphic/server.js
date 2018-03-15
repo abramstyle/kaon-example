@@ -9,8 +9,8 @@ import Helmet from 'react-helmet';
 import Loadable from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
 
-import stats from '../build/react-loadable.json';
 import prefetch from '../utils/prefetch';
+import stats from '../../build/react-loadable.json';
 
 import configureStore from '../../src/store/configureStore';
 import routes from '../../src/routes';

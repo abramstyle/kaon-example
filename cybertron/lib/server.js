@@ -26,7 +26,7 @@ class Server {
     try {
       routes = require(this.options.app.routes);
     } catch (e) {
-      console.warn('routes config found, bud load routes failed.');
+      console.warn('routes config found, but load routes failed.');
     }
     this.server = await this.app({
       config: this.options,
@@ -53,8 +53,9 @@ class Server {
           resolve();
           this.server = null;
         });
+      } else {
+        resolve();
       }
-      resolve();
     });
   }
 }
