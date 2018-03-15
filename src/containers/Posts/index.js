@@ -15,7 +15,7 @@ const LoadablePosts = Loadable({
 
   render(loaded, props) {
     const { store } = props;
-    store.replaceReducer(nextReducer);
+    store.replaceReducer(nextReducer());
     // console.log('replace reducer.');
     const Component = loaded.default;
     return <Component />;
