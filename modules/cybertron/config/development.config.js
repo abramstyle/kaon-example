@@ -7,8 +7,8 @@ const { ReactLoadablePlugin } = require('react-loadable/webpack');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const getConfig = (config) => {
-  const serverHost = config.host || '0.0.0.0';
-  const serverPort = config.port || 1592;
+  const serverHost = config.build.host || '0.0.0.0';
+  const serverPort = config.build.port || 1592;
 
   return {
   // mode: 'development',
@@ -39,7 +39,7 @@ const getConfig = (config) => {
       filename: '[name].js',
       // the output bundle
 
-      path: config.path,
+      path: config.build.path,
 
       publicPath: `http://${serverHost}:${serverPort}/`,
       // necessary for HMR to know where to load the hot update chunks
@@ -105,7 +105,7 @@ const getConfig = (config) => {
           loader: 'postcss-loader',
           options: {
             config: {
-              path: resolve(__dirname, '../../config/postcss.config.js'),
+              path: config.postcss.path,
             },
           },
         }],
@@ -155,7 +155,7 @@ const getConfig = (config) => {
       }),
 
       new ReactLoadablePlugin({
-        filename: `${config.path}/react-loadable.json`,
+        filename: `${config.build.path}/react-loadable.json`,
       }),
       new webpack.DefinePlugin({
         'process.env.APP_ENV': JSON.stringify(process.env.NODE_ENV),

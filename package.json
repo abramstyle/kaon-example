@@ -6,8 +6,8 @@
   "repository": "https://github.com/abramstyle/cybertron",
   "author": "Abram.Zhao <abram.zhao@dji.com>",
   "scripts": {
-    "dev": "NODE_ENV=development node ./cybertron",
-    "prod": "NODE_ENV=production node ./cybertron",
+    "dev": "NODE_ENV=development node ./modules/cybertron",
+    "prod": "NODE_ENV=production node ./modules/cybertron",
     "server": "NODE_ENV=development nodemon server",
     "build:server": "webpack --config config/webpack/server.config.js --watch --env=development --progress --colors"
   },

@@ -10,12 +10,12 @@ import Loadable from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
 
 import prefetch from '../utils/prefetch';
-import stats from '../../build/react-loadable.json';
 
-import configureStore from '../../src/store/configureStore';
-import routes from '../../src/routes';
+import stats from '../../../build/react-loadable.json';
+import configureStore from '../../../src/store/configureStore';
+import routes from '../../../src/routes';
 
-const render = async (ctx) => {
+const getRenderer = async config => async (ctx) => {
   // const context = {};
   const store = configureStore();
   const context = {};
@@ -56,4 +56,4 @@ const render = async (ctx) => {
   };
 };
 
-export default render;
+export default getRenderer;
