@@ -4,7 +4,7 @@ function isFunction(object) {
   return typeof object === 'function';
 }
 
-async function preFetch(config) {
+async function prefetch(config) {
   const {
     routes,
     url,
@@ -29,4 +29,4 @@ async function preFetch(config) {
   return Promise.all(fetchingList);
 }
 
-module.exports = preFetch;
+module.exports = prefetch;
