@@ -12,7 +12,6 @@ const res = p => path.resolve(__dirname, p);
 
 const nodeModules = res('../../node_modules');
 const entry = res('../isomorphic/server.js');
-const output = res('../build');
 
 // if you're specifying externals to leave unbundled, you need to tell Webpack
 // to still bundle `react-universal-component`, `webpack-flush-chunks` and
@@ -28,7 +27,7 @@ const externals = fs
 
 externals['react-dom/server'] = 'commonjs react-dom/server';
 
-module.exports = {
+const getConfig = config => ({
   name: 'server',
   target: 'node',
   // devtool: 'source-map',
@@ -36,7 +35,7 @@ module.exports = {
   entry: [entry],
   externals,
   output: {
-    path: output,
+    path: config.path,
     filename: '[name].js',
     libraryTarget: 'commonjs2',
   },
@@ -75,4 +74,5 @@ module.exports = {
       },
     }),
   ],
-};
+});
+module.exports = getConfig;

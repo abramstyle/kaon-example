@@ -13,7 +13,7 @@ const bootstrap = async (options) => {
   // const { env: { NODE_ENV: env } } = process;
   const { configPath } = options;
   const config = loadConfig(configPath);
-  const serverConfig = require('../config/server.config');
+  const serverConfig = require('../config/server.config')(config.build);
   const DevServer = require('./webpack-dev-server');
 
   let devServer = null;
