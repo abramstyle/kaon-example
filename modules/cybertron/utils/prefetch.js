@@ -17,8 +17,8 @@ async function preFetch(config) {
 
   components.forEach((component) => {
     const { nextReducer, getInitialProps } = component;
-    if (nextReducer) {
-      store.replaceReducer(nextReducer);
+    if (typeof nextReducer === 'function') {
+      store.replaceReducer(nextReducer());
     }
 
     if (getInitialProps && isFunction(getInitialProps)) {

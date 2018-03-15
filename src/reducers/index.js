@@ -9,7 +9,7 @@ const reducers = {
   localization,
 };
 
-const generateReducers = (asyncReducers = {}, state = {}) => {
+const generateReducers = (asyncReducers = {}) => (state = {}) => {
   Object.assign(reducers, {
     ...asyncReducers,
   });

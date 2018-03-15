@@ -16,6 +16,6 @@ const middlewares = [
 
 const composeEnhancers = root.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const configureStore = preloadedState => createStore(generateReducers({}, preloadedState), preloadedState, composeEnhancers(applyMiddleware(...middlewares)));
+const configureStore = preloadedState => createStore(generateReducers({})(preloadedState), preloadedState, composeEnhancers(applyMiddleware(...middlewares)));
 
 export default configureStore;
