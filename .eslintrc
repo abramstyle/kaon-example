@@ -36,6 +36,7 @@
     "react/no-unused-prop-types": ["error", { "skipShapeProps": true }],
     "react/forbid-prop-types": ["error", { "forbid": ["any", "array"] }],
     "import/prefer-default-export": 0,
+    "import/no-dynamic-require": 0,
     "react/prefer-stateless-function": [1,{"ignorePureComponents": true}],
     "no-underscore-dangle": ["error", { "allow": ["__DEV__", "__PROD__", "__RELEASE__", "__STAGING__", "__PRELOADED_STATE__"] }],
     "react/no-did-mount-set-state":0

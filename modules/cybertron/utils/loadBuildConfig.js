@@ -12,7 +12,7 @@ function buildConfig(configBuilder, appConfig) {
     config = configBuilder;
   }
   if (typeof config === 'function') {
-    return config(appConfig.build);
+    return config(appConfig);
   }
   return config;
 }

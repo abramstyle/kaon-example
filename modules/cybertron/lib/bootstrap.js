@@ -13,7 +13,7 @@ const bootstrap = async (options) => {
   // const { env: { NODE_ENV: env } } = process;
   const { configPath } = options;
   const config = loadConfig(configPath);
-  const serverConfig = require('../config/server.config')(config.build);
+  const serverConfig = require('../config/server.config')(config);
   const DevServer = require('./webpack-dev-server');
 
   let devServer = null;
@@ -68,6 +68,9 @@ const bootstrap = async (options) => {
 
 
     Promise.all(closing).then(() => {
+      console.log('server closed.');
+      process.exit();
+    }).catch(() => {
       console.log('server closed.');
       process.exit();
     });

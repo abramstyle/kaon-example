@@ -10,7 +10,7 @@ const webpack = require('webpack');
 
 const res = p => path.resolve(__dirname, p);
 
-const nodeModules = res('../../node_modules');
+const nodeModules = res('../../../node_modules');
 const entry = res('../isomorphic/server.js');
 
 // if you're specifying externals to leave unbundled, you need to tell Webpack
@@ -35,7 +35,7 @@ const getConfig = config => ({
   entry: [entry],
   externals,
   output: {
-    path: config.path,
+    path: config.build.path,
     filename: '[name].js',
     libraryTarget: 'commonjs2',
   },
@@ -72,6 +72,7 @@ const getConfig = config => ({
         NODE_ENV: JSON.stringify('development'),
         API_HOST: JSON.stringify(process.env.API_HOST),
       },
+      loadablePath: '../../../build/react-loadable.json',
     }),
   ],
 });
