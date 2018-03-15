@@ -1,12 +1,12 @@
 async function generateApp({ config, routes }) {
   const Koa = require('koa');
   const bodyParser = require('koa-bodyparser');
-  const koaLogger = require('koa-logger');
   const views = require('koa-views');
   const favicon = require('koa-favicon');
   const path = require('path');
   const koaStatic = require('koa-static');
   const Loadable = require('react-loadable');
+  const applyMiddlewares = require('../utils/applyMiddlewares');
 
   require('css-modules-require-hook')({
     generateScopedName: '[name]__[local]___[hash:base64:5]',
@@ -19,10 +19,14 @@ async function generateApp({ config, routes }) {
   app.context.config = config;
   app.keys = config.app.keys;
 
+  // if external middlewares provided, then apply it
+  if (config.app.middlewares) {
+    applyMiddlewares(config.app.middlewares, app);
+  }
+
 
   app.use(bodyParser());
   app.use(favicon(path.join(__dirname, '../../public/favicon.ico')));
-  app.use(koaLogger());
 
   // Must be used before any router is used
   app.use(views(`${__dirname}/views`, {
