@@ -7,5 +7,6 @@
   outline: none;
   height: 40px;
   cursor: pointer;
-  background-color: $light-bg;
+  color: #fff;
+  background-color: $blue;
 }
