@@ -17,12 +17,12 @@ const propTypes = {
 };
 
 class Posts extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {};
-  //
-  //   this.handleClickLoadMore = this.handleClickLoadMore.bind(this);
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {};
+
+    this.handleClickLoadMore = this.handleClickLoadMore.bind(this);
+  }
 
   loadPosts() {
     const { postActions, posts } = this.props;
@@ -30,6 +30,13 @@ class Posts extends Component {
       _page: posts.get('page'),
       _limit: 5,
     });
+  }
+
+  componentDidMount() {
+    const { posts } = this.props;
+    if (posts.get('page') === 1) {
+      this.loadPosts();
+    }
   }
 
   handleClickLoadMore() {

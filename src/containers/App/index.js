@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { renderRoutes } from 'react-router-config';
-import 'normalize.css';
+// import 'normalize.css';
 
 import Header from '../../components/Header';
 // import Posts from '../../containers/Posts';
