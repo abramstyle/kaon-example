@@ -4580,6 +4580,32 @@ jsx-ast-utils@^2.0.0, jsx-ast-utils@^2.0.1:
   dependencies:
     array-includes "^3.0.3"
 
+keon@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.npmjs.org/keon/-/keon-0.1.2.tgz#effa5ece93a90e4043a6ce7452baabc0a2170049"
+  dependencies:
+    "@abramstyle/utils" "^0.8.13"
+    bluebird "^3.5.1"
+    css-modules-require-hook "^4.2.3"
+    dotenv "^4.0.0"
+    koa "^2.5.0"
+    koa-bodyparser "^4.2.0"
+    koa-favicon "^2.0.0"
+    koa-static "^4.0.2"
+    koa-views "^6.1.4"
+    react "^16.2.0"
+    react-dom "^16.2.0"
+    react-helmet "^5.2.0"
+    react-loadable "^5.3.1"
+    react-redux "^5.0.7"
+    react-router "^4.2.0"
+    react-router-config "^1.0.0-beta.4"
+    react-router-dom "^4.2.2"
+    redux "^3.7.2"
+    webpack-log "^1.1.2"
+    webpack-merge "^4.1.2"
+    yargs "^11.0.0"
+
 keygrip@~1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/keygrip/-/keygrip-1.0.2.tgz#ad3297c557069dea8bcfe7a4fa491b75c5ddeb91"
