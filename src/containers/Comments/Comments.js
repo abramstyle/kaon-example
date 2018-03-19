@@ -52,7 +52,7 @@ class Comments extends Component {
         >
           <Helmet>
             <html lang="zh-CH" country="cn" />
-            <title>Posts - Cybertron</title>
+            <title>Comments - Cybertron</title>
             <meta name="keywords" content="posts,cybertron,isomorphic" />
             <meta name="description" content="cybertron renders your components from server." />
           </Helmet>

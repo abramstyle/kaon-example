@@ -30,7 +30,6 @@ const render = () => {
   );
 };
 
-// Loadable.preloadReady().then((res) => {
-  // console.log('preload res: ', res);
-render();
-// });
+Loadable.preloadReady().then(() => {
+  render();
+});
