@@ -7,8 +7,11 @@ import generateReducers from '../../reducers';
 
 const nextReducer = generateReducers(reducers);
 
-const LoadablePosts = Loadable({
-  loader: () => import('./Posts'),
+const LoadablePosts = Loadable.Map({
+  loader: {
+    component: () => import('./Posts'),
+    style: () => import('./style.css'),
+  },
   loading() {
     return <div>Loading Post Component...</div>;
   },
@@ -17,7 +20,10 @@ const LoadablePosts = Loadable({
     const { store } = props;
     store.replaceReducer(nextReducer());
     // console.log('replace reducer.');
-    const Component = loaded.default;
+    const Component = loaded.component.default;
+    console.log('loaded: ', loaded);
+    const style = loaded.style;
+    console.log('style: ', style);
     return <Component />;
   },
 });
