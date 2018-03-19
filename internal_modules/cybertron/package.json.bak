@@ -1,0 +1,16 @@
+{
+  "name": "cybertron",
+  "version": "0.0.1",
+  "description": "Cybertron is a react isomorphic framework, render your code from server side, with automatic code splitting",
+  "main": "index.js",
+  "bin": {
+    "cybertron": "./bin/cli"
+  },
+  "repository": "https://github.com/abramstyle/cybertron",
+  "author": "Abramstyle",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "yargs": "^11.0.0"
+  }
+}

@@ -1,17 +1,6 @@
-require('babel-polyfill');
-require('babel-register')({
-  plugins: ['transform-es2015-modules-commonjs'],
-  // ignore: '/app',
-});
+const Keon = require('keon');
+const config = require('./config/keon.config');
 
-const dotenv = require('dotenv');
-const app = require('./app');
-// const envHelper = require('./helpers/env');
+const keon = new Keon(config);
 
-dotenv.config();
-// envHelper.config();
-
-// if (__PROD__ || __RELEASE__) {
-// }
-
-app()();
+keon.start();

@@ -1,7 +1,12 @@
+import React from 'react';
 import App from '../containers/App';
 import Posts from '../containers/Posts';
 import Comments from '../containers/Comments';
 import Profile from '../containers/Profile';
+
+function Detail() {
+  return <detail />;
+}
 
 const routes = [
   {
@@ -9,15 +14,16 @@ const routes = [
     routes: [
       {
         path: '/posts',
-        exact: true,
         component: Posts,
+        routes: [{
+          path: '/posts/detail',
+          component: Detail,
+        }],
       }, {
         path: '/comments',
-        exact: true,
         component: Comments,
       }, {
         path: '/profile',
-        exact: true,
         component: Profile,
       },
     ],

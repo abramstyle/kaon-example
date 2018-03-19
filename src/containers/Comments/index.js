@@ -1,51 +1,41 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Loadable from 'react-loadable';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import * as commentActionCreators from './actions/comments';
+import reducers from './reducers';
+import generateReducers from '../../reducers';
 
-import Panel from '../../components/Panel';
-import * as postActionCreators from '../../actions/posts';
+const nextReducer = generateReducers(reducers);
 
-const propTypes = {
-  postActions: PropTypes.object.isRequired,
+const LoadableComments = Loadable({
+  loader: () => import('./Comments'),
+  loading() {
+    return <div>Loading Comment Component...</div>;
+  },
+  render(loaded, props) {
+    const { store } = props;
+    store.replaceReducer(nextReducer());
+    // console.log('replace reducer.');
+    const Component = loaded.default;
+    return <Component />;
+  },
+});
+
+function Comments(props, context) {
+  const { store } = context;
+  return <LoadableComments store={store} />;
+}
+
+Comments.contextTypes = {
+  store: PropTypes.object,
 };
 
-class Comments extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+Comments.getInitialProps = dispatch => dispatch(commentActionCreators.fetchComments({
+  _page: 1,
+  _limit: 5,
+}));
 
-  componentDidMount() {
-    const { postActions } = this.props;
-    postActions.fetchPosts();
-  }
-
-  render() {
-    return (
-      <div className="posts">
-        <Panel
-          title="Comments"
-        />
-      </div>
-    );
-  }
-}
+Comments.nextReducer = nextReducer;
 
 
-function mapStateToProps(state) {
-  const { posts } = state;
-  return {
-    posts,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    postActions: bindActionCreators(postActionCreators, dispatch),
-  };
-}
-
-Comments.propTypes = propTypes;
-
-export default connect(mapStateToProps, mapDispatchToProps)(Comments);
+export default Comments;

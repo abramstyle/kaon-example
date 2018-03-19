@@ -1,7 +1,6 @@
 .DS_Store
 node_modules/*
 npm-debug.log
-public/build/*
 .swp
 .swo
 webpack-assets.json
@@ -9,6 +8,7 @@ webpack-assets.json
 .env
 yarn-error.log
 log/*
+build/*
 .happypack/
 newrelic_agent.log
 dump.rdb
@@ -19,3 +19,4 @@ coverage/*
 logs/*
 .happypack/
 mockdb.js
+public/build/*
