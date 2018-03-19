@@ -4,8 +4,8 @@ const { env } = process;
 
 const config = {
   app: {
-    name: `Cybertron (${env.NODE_ENV})`,
-    shortName: 'cybertron',
+    name: `React isomorphic boilerplate (${env.NODE_ENV})`,
+    shortName: 'rib',
     port: env.SERVER_PORT || 1827,
     keys: [env.APP_KEY],
     routes: path.resolve(__dirname, '../app/routes'),
@@ -33,10 +33,11 @@ const config = {
     path: path.resolve(__dirname, './postcss.config.js'),
   },
   build: {
-    host: 'localhost',
-    port: 1592,
+    host: process.env.NODE_ENV === 'production' ? 'localhost' : 'localhost',
+    port: process.env.NODE_ENV === 'production' ? 1827 : 1592,
+    path: process.env.NODE_ENV === 'production' ? 'build/' : '',
     webpack: path.resolve(__dirname, './webpack.config.js'),
-    path: path.resolve(__dirname, '../build'),
+    target: process.env.NODE_ENV === 'production' ? path.resolve(__dirname, '../public/build') : path.resolve(__dirname, '../build'),
   },
 };
 

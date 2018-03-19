@@ -6,8 +6,10 @@
   "repository": "https://github.com/abramstyle/cybertron",
   "author": "Abram.Zhao <abram.zhao@dji.com>",
   "scripts": {
-    "dev": "NODE_ENV=development ./modules/cybertron/.bin/cli.js start --config ./config/cybertron.config.js",
-    "prod": "NODE_ENV=production node ./modules/cybertron",
+    "dev": "NODE_ENV=development keon start --config ./config/keon.config.js",
+    "prod": "NODE_ENV=production keon start --config ./config/keon.config.js",
+    "build:dev": "NODE_ENV=development keon build --config ./config/keon.config.js",
+    "build:prod": "NODE_ENV=production keon build --config ./config/keon.config.js",
     "server": "NODE_ENV=development nodemon server",
     "build:server": "webpack --config config/webpack/server.config.js --watch --env=development --progress --colors"
   },

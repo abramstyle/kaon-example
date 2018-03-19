@@ -23,6 +23,7 @@ const getRenderer = async (config) => {
     const {
       html, state, helmet, bundles,
     } = await serverRenderer(ctx);
+
     const allAttributes = Object.keys(helmet).reduce((attributes, key) => {
       attributes[key] = (helmet[key] || {}).toString();
 

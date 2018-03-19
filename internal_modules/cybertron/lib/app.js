@@ -2,8 +2,6 @@ async function generateApp({ config, routes }) {
   const Koa = require('koa');
   const bodyParser = require('koa-bodyparser');
   const views = require('koa-views');
-  const favicon = require('koa-favicon');
-  const path = require('path');
   const koaStatic = require('koa-static');
   const Loadable = require('react-loadable');
   const applyMiddlewares = require('../utils/applyMiddlewares');
@@ -26,7 +24,6 @@ async function generateApp({ config, routes }) {
 
 
   app.use(bodyParser());
-  app.use(favicon(path.join(__dirname, '../../public/favicon.ico')));
 
   // Must be used before any router is used
   app.use(views(`${__dirname}/views`, {

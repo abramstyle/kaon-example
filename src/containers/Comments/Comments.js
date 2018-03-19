@@ -16,17 +16,20 @@ const propTypes = {
 };
 
 class Comments extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {};
-  //
-  //   this.handleClickLoadMore = this.handleClickLoadMore.bind(this);
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {};
 
-  // componentDidMount() {
-  //   const { commentActions } = this.props;
-  //   commentActions.fetchPosts();
-  // }
+    this.handleClickLoadMore = this.handleClickLoadMore.bind(this);
+  }
+
+  componentDidMount() {
+    const { comments } = this.props;
+    if (comments.get('page') === 1) {
+      this.loadComments();
+    }
+  }
+
   handleClickLoadMore() {
     this.loadComments();
   }

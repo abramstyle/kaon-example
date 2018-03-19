@@ -22,13 +22,15 @@ const HotReloadableApp = hot(module)(App);
 
 const render = () => {
   // Loadable.preloadReady().then(() => {
-  Loadable.preloadReady().then(() => {
-    ReactDOM.hydrate(
-      <Provider store={store}>
-        <HotReloadableApp />
-      </Provider>,
-      document.querySelector('#root'),
-    );
-  });
+  ReactDOM.hydrate(
+    <Provider store={store}>
+      <HotReloadableApp />
+    </Provider>,
+    document.querySelector('#root'),
+  );
 };
+
+// Loadable.preloadReady().then((res) => {
+  // console.log('preload res: ', res);
 render();
+// });
