@@ -1,5 +1,5 @@
-# Keon example
-an [keon](https://github.com/abramstyle/keon) example.
+# Kaon example
+an [kaon](https://github.com/abramstyle/kaon) example.
 
 # getting started
 
@@ -9,7 +9,7 @@ install dependencies
 yarn
 yarn run dev
 ```
-Then open your browser and go to [localhost:1827](http://localhost:1827). This page is rendered by keon. If you edit some code, the server will automatically reload, ant the client will hot reload.
+Then open your browser and go to [localhost:1827](http://localhost:1827). This page is rendered by kaon. If you edit some code, the server will automatically reload, ant the client will hot reload.
 
 # server side data fetching
 You should start an data server, or you can fetch from [Github GraphQL API v4 ](https://developer.github.com/).

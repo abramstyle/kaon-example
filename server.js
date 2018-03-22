@@ -1,6 +1,6 @@
-const Keon = require('keon');
-const config = require('./config/keon.config');
+const Kaon = require('kaon');
+const config = require('./config/kaon.config');
 
-const keon = new Keon(config);
+const kaon = new Kaon(config);
 
-keon.start();
+kaon.start();

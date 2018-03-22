@@ -4403,9 +4403,9 @@ jsx-ast-utils@^2.0.0, jsx-ast-utils@^2.0.1:
   dependencies:
     array-includes "^3.0.3"
 
-keon@^0.1.5:
+kaon@^0.1.5:
   version "0.1.5"
-  resolved "https://registry.npmjs.org/keon/-/keon-0.1.5.tgz#b3d174ed2c48848597319781cdce11f7d740ecd9"
+  resolved "https://registry.npmjs.org/kaon/-/kaon-0.1.5.tgz#b3d174ed2c48848597319781cdce11f7d740ecd9"
   dependencies:
     "@abramstyle/utils" "^0.8.13"
     autoprefixer "^7.2.3"
