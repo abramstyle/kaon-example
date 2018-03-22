@@ -21,9 +21,6 @@ const LoadablePosts = Loadable.Map({
     store.replaceReducer(nextReducer());
     // console.log('replace reducer.');
     const Component = loaded.component.default;
-    console.log('loaded: ', loaded);
-    const style = loaded.style;
-    console.log('style: ', style);
     return <Component />;
   },
 });
