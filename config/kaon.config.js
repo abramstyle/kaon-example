@@ -32,11 +32,14 @@ const config = {
   postcss: {
     path: path.resolve(__dirname, './postcss.config.js'),
   },
+  webpack: {
+    client: path.resolve(__dirname, './webpack.client.config'),
+    server: path.resolve(__dirname, './webpack.server.config'),
+  },
   build: {
     host: process.env.NODE_ENV === 'production' ? 'localhost' : 'localhost',
     port: process.env.NODE_ENV === 'production' ? 1827 : 1592,
     path: process.env.NODE_ENV === 'production' ? 'build/' : '',
-    webpack: path.resolve(__dirname, './webpack.config.js'),
     target: process.env.NODE_ENV === 'production' ? path.resolve(__dirname, '../public/build') : path.resolve(__dirname, '../build'),
   },
 };
