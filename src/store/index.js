@@ -9,7 +9,7 @@ const state = preloadedState ? Object.keys(preloadedState).reduce((result, key) 
   return result;
 }, {}) : undefined;
 
-const store = configureStore(state);
+const store = configureStore()(state);
 export {
   state as preloadedState,
   store as default,
