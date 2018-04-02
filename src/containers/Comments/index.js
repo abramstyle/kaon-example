@@ -8,7 +8,7 @@ import generateReducers from '../../reducers';
 const nextReducer = generateReducers(reducers);
 
 const LoadableComments = Loadable({
-  loader: () => import('./Comments'),
+  loader: () => import(/* webpackChunkName: "comments" */'./Comments'),
   loading() {
     return <div>Loading Comment Component...</div>;
   },

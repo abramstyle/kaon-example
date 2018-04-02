@@ -1,5 +1,6 @@
 function buildConfig(env) {
-  const config = require(`./webpack/client/${env}.config`);
+  const configEnv = env === 'development' ? 'development' : 'production';
+  const config = require(`./webpack/client/${configEnv}.config`);
 
   return config;
 }
