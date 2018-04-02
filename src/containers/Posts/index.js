@@ -9,7 +9,7 @@ const nextReducer = generateReducers(reducers);
 
 const LoadablePosts = Loadable.Map({
   loader: {
-    component: () => import('./Posts'),
+    component: () => import(/* webpackChunkName: "posts" */'./Posts'),
     style: () => import('./style.css'),
   },
   loading() {
