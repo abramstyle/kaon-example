@@ -1,0 +1,14 @@
+.post {
+  padding: 20px 0;
+  display: flex;
+  justify-content: flex-start;
+}
+.id {
+  min-width: 100px;
+}
+.title {
+  min-width: 100px;
+}
+.author {
+  min-width: 100px;
+}
