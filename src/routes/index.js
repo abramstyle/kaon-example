@@ -1,24 +1,16 @@
-import App from '../containers/App';
-import Posts from '../containers/Posts';
-import Comments from '../containers/Comments';
-import Profile from '../containers/Profile';
+import MobileDetect from 'mobile-detect';
+import desktopRoutes from './desktop';
+import mobileRoutes from './mobile';
 
-const routes = [
-  {
-    component: App,
-    routes: [
-      {
-        path: '/posts',
-        component: Posts,
-      }, {
-        path: '/comments',
-        component: Comments,
-      }, {
-        path: '/profile',
-        component: Profile,
-      },
-    ],
-  },
-];
+function getRoutes(ctx) {
+  let md = null;
+  if (__IS_SERVER__) {
+    ({ state: { md } } = ctx);
+  } else {
+    const { userAgent } = navigator;
+    md = new MobileDetect(userAgent);
+  }
+  return md.mobile() ? mobileRoutes : desktopRoutes;
+}
 
-export default routes;
+export default getRoutes;
