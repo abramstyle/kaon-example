@@ -19,7 +19,7 @@ Just run `yarn run db`.
 
 Then you can access data at [localhost:1090](http://localhost:1090);
 
-Fake data is provided by [faker](https://github.com/Marak/faker.js) and served by [json-server](https://github.com/typicode/json-server). 
+Fake data is provided by [faker](https://github.com/Marak/faker.js) and served by [json-server](https://github.com/typicode/json-server).
 
 ## how to prevent load data from client if thie page is rendered at server side?
 At this example, You should check if the current page equals '1'.
@@ -39,7 +39,7 @@ Because the reducer will increase page after fetched the data of the first page.
 
 ```bash
 # Build in production mode.
-yarn run build:prod
+yarn run build
 # start prod server
 yarn run prod
 ```
