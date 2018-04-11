@@ -1,5 +1,9 @@
 @import "../../../styles/variables.css";
 
+.mobile {
+  margin: 0;
+}
+
 .header {
   padding: 20px 0;
   display: flex;

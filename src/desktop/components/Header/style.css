@@ -1,5 +1,9 @@
 @import "../../../styles/variables.css";
 
+.desktop {
+  margin: 0;
+}
+
 .header {
   padding: 40px 0;
   display: flex;
