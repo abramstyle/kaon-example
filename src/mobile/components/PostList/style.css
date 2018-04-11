@@ -1,8 +1,7 @@
-@import "../../styles/variables.css";
+@import "../../../styles/variables.css";
 
 .post-items {
   margin-top: 20px;
-  border: 1px solid $border;
 }
 
 .post-list {
@@ -13,7 +12,5 @@
 
 .post-item {
   width: 100%;
-  &:not(:last-child) {
-    border-bottom: 1px solid $border;
-  }
+  margin-bottom: 20px;
 }

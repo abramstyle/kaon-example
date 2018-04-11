@@ -1,0 +1,16 @@
+@import "../../../styles/variables.css";
+
+.footer {
+  margin-top: 20px;
+  padding: 20px 0;
+  border-top: 1px solid $disabled;
+  display: flex;
+  justify-content: space-between;
+  .brand {
+    font-family: 'Poiret One', cursive;
+    font-size: 18px;
+  }
+  .copyright {
+    color: $default-border;
+  }
+}

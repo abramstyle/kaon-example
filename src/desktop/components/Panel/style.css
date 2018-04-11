@@ -1,10 +1,30 @@
 .panel {
-  padding: 20px;
-
   .header {
+    display: flex;
+    position: relative;
+    &.has-background {
+      height: 1000px;
+    }
+    .background {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: 100%;
+      transform: translateX(-50%);
+      img {
+        height: 100%;
+      }
+    }
     .title {
-      margin: 0;
-      font-size: 16px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      margin: auto;
+      font-size: 30px;
+      line-height: 1em;
+      color: #fff;
     }
   }
 }

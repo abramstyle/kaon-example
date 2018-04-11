@@ -1,32 +1,102 @@
-@import "../../styles/variables.css";
+@import "../../../styles/variables.css";
 
 .header {
+  padding: 20px 0;
   display: flex;
-  background-color: $indigo;
+  align-items: center;
+  justify-content: space-between;
 }
 .logo {
   display: flex;
   align-items: center;
   margin: 0;
-  padding: 10px 20px;
+  padding: 0 20px;
 }
 .nav {
   display: flex;
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0;
-    list-style-type: none;
+  align-items: center;
+  height: 30px;
+  padding: 0 20px;
+  background: #fff;
+  .toggle {
+    position: relative;
+    height: 2px;
+    width: 30px;
+    z-index: 4;
+    padding: 0;
+    background-color: $default-border;
+    text-indent: -9999px;
+    border: none;
+    outline: none;
+    transition: background-color linear .3s;
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: 3;
+      left: 0;
+      top: 0;
+      height: 2px;
+      width: 30px;
+      background-color: $default-border;
+      transform: translateY(-10px) rotate(0);
+      transition: transform linear .3s;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: 3;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 30px;
+      background-color: $default-border;
+      transform: translateY(10px) rotate(0);
+      transition: transform linear .3s;
+    }
+    &.show {
+      background-color: transparent;
+      &:before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+      &:after {
+        bottom: 0;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    display: none;
     line-height: 2em;
+    background-color: #fff;
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+  }
+  .menu-logo {
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+  }
+  &.show {
+    .menu {
+      display: block;
+    }
   }
   li {
-    margin-right: 20px;
-  }
-  a {
-    display: block;
-    padding: 10px 20px;
-    background-color: transparent;
-    transition: background-color .5s;
-    color: #eee;
+    a {
+      display: block;
+      padding: 10px 20px;
+      background-color: transparent;
+      transition: background-color .5s;
+      text-align: center;
+    }
   }
 }

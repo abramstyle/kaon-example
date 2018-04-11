@@ -1,13 +1,37 @@
+@import "../../../styles/variables.css";
+
 .post {
   padding: 20px 0;
-  display: flex;
-  justify-content: flex-start;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, .1); */
+  /* border: 1px solid #eee; */
+  background-color: #fff;
 }
 .id {
   min-width: 100px;
+  padding: 0 20px;
 }
 .title {
+  display: block;
   min-width: 100px;
+  color: $secondary;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.meta {
+  display: flex;
+  margin-top: 10px;
+}
+.item {
+  display: flex;
+  color: $default-border;
+  margin-right: 20px;
+}
+.text {
+  margin-left: 5px;
+}
+.comments {
+}
+.liked {
 }
 .author {
   min-width: 100px;

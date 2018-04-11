@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import Panel from '../../components/Panel';
 import * as postActionCreators from './actions/profile';
+import './style.css';
 
 const propTypes = {
   postActions: PropTypes.object.isRequired,
@@ -23,7 +24,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className="posts">
+      <div styleName="profile">
         <Panel
           title="Profile"
         >

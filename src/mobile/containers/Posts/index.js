@@ -1,5 +1,5 @@
 import React from 'react';
-import Loadable from 'react-loadable';
+import Loadable from '@7rulnik/react-loadable';
 import PropTypes from 'prop-types';
 import * as postActionCreators from './actions/posts';
 import reducers from './reducers';
@@ -9,7 +9,7 @@ const nextReducer = generateReducers(reducers);
 
 const LoadablePosts = Loadable.Map({
   loader: {
-    component: () => import(/* webpackChunkName: "posts-mobile" */'./Posts'),
+    component: () => import(/* webpackChunkName: "mobile-posts" */'./Posts'),
     style: () => import('./style.css'),
   },
   loading() {

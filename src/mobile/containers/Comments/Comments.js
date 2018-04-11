@@ -6,6 +6,7 @@ import Helmet from 'react-helmet';
 
 import PostList from '../../components/PostList';
 
+import commentsImg from './comments.jpeg';
 import Panel from '../../components/Panel';
 import * as commentActionCreators from './actions/comments';
 import './style.css';
@@ -45,10 +46,14 @@ class Comments extends Component {
 
   render() {
     const { comments } = this.props;
+    const background = (
+      <img src={commentsImg} alt="" />
+    );
     return (
       <div className="posts">
         <Panel
           title="Comments"
+          background={background}
         >
           <Helmet>
             <html lang="zh-CH" country="cn" />
