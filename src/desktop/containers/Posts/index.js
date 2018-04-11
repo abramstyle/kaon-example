@@ -1,5 +1,5 @@
 import React from 'react';
-import Loadable from 'react-loadable';
+import Loadable from '@7rulnik/react-loadable';
 import PropTypes from 'prop-types';
 import * as postActionCreators from './actions/posts';
 import reducers from './reducers';

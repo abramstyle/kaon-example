@@ -8,6 +8,11 @@ const routes = [
     component: App,
     routes: [
       {
+        path: '/',
+        component: Posts,
+        exact: true,
+      },
+      {
         path: '/posts',
         component: Posts,
         exact: true,

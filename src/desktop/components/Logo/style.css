@@ -1,7 +1,25 @@
+@import "../../../styles/variables.css";
+
 .logo {
-  display: block;
-  color: #fff;
-  font-size: 18px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+.icon {
+  width: 60px;
+  height: 60px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.brand {
+  margin-left: 10px;
+  color: $secondary;
+  font-weight: bold;
+  font-size: 24px;
+  font-family: 'Poiret One', cursive;
   line-height: 1em;
   text-decoration: none;
 }

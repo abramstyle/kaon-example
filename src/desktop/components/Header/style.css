@@ -1,8 +1,9 @@
-@import "../../styles/variables.css";
+@import "../../../styles/variables.css";
 
 .header {
+  padding: 40px 0;
   display: flex;
-  background-color: $indigo;
+  justify-content: space-between;
 }
 .logo {
   display: flex;
@@ -14,7 +15,7 @@
   display: flex;
   ul {
     display: flex;
-    margin: 0;
+    margin: auto;
     list-style-type: none;
     line-height: 2em;
   }
@@ -26,6 +27,5 @@
     padding: 10px 20px;
     background-color: transparent;
     transition: background-color .5s;
-    color: #eee;
   }
 }

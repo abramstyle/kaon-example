@@ -1,8 +1,7 @@
-@import "../../styles/basic.css";
+@import '../../styles/basic.css';
 
 .main {
-  width: 100%;
-  max-width: 640px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }

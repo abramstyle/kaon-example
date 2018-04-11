@@ -8,6 +8,7 @@ import Helmet from 'react-helmet';
 import Panel from '../../components/Panel';
 import PostList from '../../components/PostList';
 
+import postImg from './posts.jpg';
 import * as postActionCreators from './actions/posts';
 import './style.css';
 
@@ -46,10 +47,14 @@ class Posts extends Component {
 
   render() {
     const { posts } = this.props;
+    const background = (
+      <img src={postImg} alt="Posts" />
+    );
     return (
       <div className="posts">
         <Panel
           title="Posts"
+          background={background}
         >
           <Helmet>
             <html lang="zh-CH" country="cn" />
