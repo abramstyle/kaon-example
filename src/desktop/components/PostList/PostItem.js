@@ -21,13 +21,13 @@ function PostItem(props) {
       </Link>
       <div styleName="meta">
         <div styleName="comments item">
-          <i className="ion-android-chat" />
+          <i className="ion ion-android-chat" />
           <div styleName="text">
             {post.get('comments')}
           </div>
         </div>
         <div styleName="liked item">
-          <i className="ion-ios-heart" />
+          <i className="ion ion-ios-heart" />
           <div styleName="text">
             {post.get('liked')}
           </div>
