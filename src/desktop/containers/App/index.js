@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { renderRoutes } from 'react-router-config';
-import 'ionicons/dist/css/ionicons.min.css';
 // import 'normalize.css';
 // import 'ionicons/dist/css/ionicons.min.css';
 
