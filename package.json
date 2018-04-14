@@ -7,13 +7,12 @@
   "author": "Abramstyle <abram.style@gmail.com>",
   "scripts": {
     "dev": "NODE_ENV=development kaon start",
-    "prod": "NODE_ENV=production kaon start --config ./config/kaon.config.js",
+    "server": "NODE_ENV=production kaon start --config ./config/kaon.config.js",
     "build": "NODE_ENV=production kaon build --config ./config/kaon.config.js",
     "db": "json-server ./db/routes.js --port 1090"
   },
   "license": "MIT",
   "dependencies": {
-    "@7rulnik/react-loadable": "^5.3.2",
     "@abramstyle/redux-api": "^0.1.11",
     "@abramstyle/utils": "^0.8.13",
     "bluebird": "^3.5.1",
@@ -25,7 +24,7 @@
     "immutable": "^3.8.2",
     "ionicons": "^3.0.0",
     "isomorphic-fetch": "^2.2.1",
-    "kaonjs": "^0.7.0-alpha-2",
+    "kaonjs": "^0.6.9",
     "koa": "^2.5.0",
     "koa-bodyparser": "^4.2.0",
     "koa-favicon": "^2.0.0",
@@ -39,6 +38,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",
+    "react-loadable": "^5.3.1",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-config": "^1.0.0-beta.4",
@@ -57,9 +57,9 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
     "eslint-plugin-security": "^1.4.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "faker": "^4.1.0",
     "json-server": "^0.12.1",
-    "mini-css-extract-plugin": "^0.4.0",
     "react-hot-loader": "^4.0.1",
     "webpack-bundle-analyzer": "^2.11.1"
   }

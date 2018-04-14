@@ -12,7 +12,7 @@
   ],
   "plugins": [
     "transform-runtime",
-    "@7rulnik/react-loadable/babel",
+    "react-loadable/babel",
     ["react-css-modules", {
       "generateScopedName": "[name]__[local]___[hash:base64:5]"
     }],
