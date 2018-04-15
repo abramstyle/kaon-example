@@ -4849,9 +4849,9 @@ jsx-ast-utils@^2.0.0, jsx-ast-utils@^2.0.1:
   dependencies:
     array-includes "^3.0.3"
 
-kaonjs@^0.6.9:
-  version "0.6.9"
-  resolved "https://registry.npmjs.org/kaonjs/-/kaonjs-0.6.9.tgz#70a422d1819e0e3c3d767ff43dc16d39da2ac02e"
+kaonjs@^1.0.0-alpha-1:
+  version "1.0.0-alpha-1"
+  resolved "https://registry.npmjs.org/kaonjs/-/kaonjs-1.0.0-alpha-1.tgz#161a59b9b95921b5784a14e3f342541898b6ee23"
   dependencies:
     "@abramstyle/utils" "^0.8.15"
     autoprefixer "^7.2.3"
@@ -4892,6 +4892,7 @@ kaonjs@^0.6.9:
     koa-favicon "^2.0.0"
     koa-static "^4.0.2"
     koa-views "^6.1.4"
+    loadable-components "^1.3.0"
     lodash "^4.17.5"
     optimize-css-assets-webpack-plugin "^4.0.0"
     postcss "^6.0.19"
@@ -4901,7 +4902,6 @@ kaonjs@^0.6.9:
     react-dom "^16.2.0"
     react-helmet "^5.2.0"
     react-hot-loader "^4.0.0"
-    react-loadable "^5.3.1"
     react-redux "^5.0.7"
     react-router "^4.2.0"
     react-router-config "^1.0.0-beta.4"
@@ -6729,7 +6729,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.0, prop-types@^15.5.4, prop-types@^15.6.0, prop-types@^15.6.1:
+prop-types@^15.5.4, prop-types@^15.6.0, prop-types@^15.6.1:
   version "15.6.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.6.1.tgz#36644453564255ddda391191fb3a125cbdf654ca"
   dependencies:
@@ -6897,12 +6897,6 @@ react-hot-loader@^4.0.0, react-hot-loader@^4.0.1:
     hoist-non-react-statics "^2.5.0"
     prop-types "^15.6.1"
     shallowequal "^1.0.2"
-
-react-loadable@^5.3.1:
-  version "5.3.1"
-  resolved "https://registry.npmjs.org/react-loadable/-/react-loadable-5.3.1.tgz#9699e9a08fed49bacd69caaa282034b62a76bcdd"
-  dependencies:
-    prop-types "^15.5.0"
 
 react-redux@^5.0.7:
   version "5.0.7"

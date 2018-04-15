@@ -9,15 +9,14 @@ import App from './App';
 
 const render = () => {
   // Loadable.preloadReady().then(() => {
-  ReactDOM.hydrate(
-    <Provider store={store}>
-      <App />
-    </Provider>,
-    document.querySelector('#root'),
-  );
+  loadComponents().then(() => {
+    ReactDOM.hydrate(
+      <Provider store={store}>
+        <App />
+      </Provider>,
+      document.querySelector('#root'),
+    );
+  });
 };
 
 render();
-// loadComponents().then(() => {
-//   render();
-// });

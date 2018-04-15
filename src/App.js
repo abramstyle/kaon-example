@@ -15,7 +15,6 @@ const md = getPlatform();
 const basename = md.mobile() ? 'mobile' : null;
 const routes = getRoutes();
 
-console.log('routes: ', routes);
 const App = () => (
   <Router basename={basename}>
     {renderRoutes(routes)}

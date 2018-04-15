@@ -4,7 +4,7 @@ const { env } = process;
 
 const config = {
   renderer: {
-    ssr: false,
+    // ssr: false,
   },
   app: {
     name: `Kaon example (${env.NODE_ENV})`,
