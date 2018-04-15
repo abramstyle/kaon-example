@@ -1,5 +1,5 @@
 import React from 'react';
-import Loadable from 'react-loadable';
+import Loadable from 'loadable-components';
 import PropTypes from 'prop-types';
 import * as commentActionCreators from './actions/comments';
 import reducers from './reducers';
@@ -7,12 +7,8 @@ import generateReducers from '../../../reducers';
 
 const nextReducer = generateReducers(reducers);
 
-const LoadableComments = Loadable({
-  loader: () => import(/* webpackChunkName: "mobile-comments" */'./Comments'),
-  loading() {
-    return <div>Loading Comment Component...</div>;
-  },
-  render(loaded, props) {
+const LoadableComments = Loadable(() => import(/* webpackChunkName: "mobile-comments" */'./Comments'), {
+  render(loaded, loading, props) {
     const { store } = props;
     store.replaceReducer(nextReducer());
     // console.log('replace reducer.');

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { renderRoutes } from 'react-router-config';
-// import 'normalize.css';
 // import 'ionicons/dist/css/ionicons.min.css';
 
 import Helmet from 'react-helmet';
@@ -10,7 +9,7 @@ import Footer from '../../components/Footer';
 // import Posts from '../../containers/Posts';
 // import Comments from '../../containers/Comments';
 // import Profile from '../../containers/Profile';
-// import './style.css';
+import './style.css';
 
 const propTypes = {
   route: PropTypes.object.isRequired,

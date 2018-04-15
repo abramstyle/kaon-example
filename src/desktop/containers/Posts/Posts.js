@@ -22,6 +22,7 @@ class Posts extends Component {
     super(props);
     this.state = {};
 
+    console.log('initialize posts');
     this.handleClickLoadMore = this.handleClickLoadMore.bind(this);
   }
 

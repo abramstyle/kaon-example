@@ -21,6 +21,7 @@ class Comments extends Component {
     super(props);
     this.state = {};
 
+    console.log('initialize comments');
     this.handleClickLoadMore = this.handleClickLoadMore.bind(this);
   }
 

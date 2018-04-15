@@ -3,6 +3,9 @@ const path = require('path');
 const { env } = process;
 
 const config = {
+  renderer: {
+    ssr: false,
+  },
   app: {
     name: `Kaon example (${env.NODE_ENV})`,
     shortName: 'ke',

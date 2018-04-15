@@ -18,13 +18,11 @@ const routes = [
         exact: true,
       },
       {
-        path: '/posts',
-        component: Posts,
-        exact: true,
-      }, {
         path: '/comments',
         component: Comments,
-      }, {
+        exact: true,
+      },
+      {
         path: '/profile',
         component: Profile,
         exact: true,

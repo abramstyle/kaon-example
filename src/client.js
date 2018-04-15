@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Loadable from 'react-loadable';
+import { loadComponents } from 'loadable-components';
 import { Provider } from 'react-redux';
 
 import store from './store';
@@ -17,6 +17,7 @@ const render = () => {
   );
 };
 
-Loadable.preloadReady().then(() => {
-  render();
-});
+render();
+// loadComponents().then(() => {
+//   render();
+// });

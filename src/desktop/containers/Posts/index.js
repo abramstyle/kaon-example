@@ -1,5 +1,5 @@
 import React from 'react';
-import Loadable from 'react-loadable';
+import loadable from 'loadable-components';
 import PropTypes from 'prop-types';
 import * as postActionCreators from './actions/posts';
 import reducers from './reducers';
@@ -7,20 +7,17 @@ import generateReducers from '../../../reducers';
 
 const nextReducer = generateReducers(reducers);
 
-const LoadablePosts = Loadable.Map({
-  loader: {
-    component: () => import(/* webpackChunkName: "posts" */'./Posts'),
-    style: () => import('./style.css'),
-  },
-  loading() {
-    return <div>Loading Post Component...</div>;
-  },
-
-  render(loaded, props) {
-    const { store } = props;
+const LoadablePosts = loadable(() => import(/* webpackChunkName: "posts" */'./Posts'), {
+  render(renderProps) {
+    const { Component, loading, ownProps } = renderProps;
+    if (loading) {
+      return (
+        <div className="loading">Loading desktop posts...</div>
+      );
+    }
+    const { store } = ownProps;
     store.replaceReducer(nextReducer());
-    // console.log('replace reducer.');
-    const Component = loaded.component.default;
+    console.log('replace reducer.');
     return <Component />;
   },
 });
@@ -41,5 +38,4 @@ Posts.getInitialProps = dispatch => dispatch(postActionCreators.fetchPosts({
 
 Posts.nextReducer = nextReducer;
 
-
-export default Posts;
+module.exports = Posts;
