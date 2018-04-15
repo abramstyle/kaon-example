@@ -6,6 +6,8 @@
 
 .header {
   padding: 40px 0;
+}
+.header-container {
   display: flex;
   justify-content: space-between;
 }

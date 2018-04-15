@@ -8,11 +8,12 @@ import generateReducers from '../../../reducers';
 const nextReducer = generateReducers(reducers);
 
 const LoadablePosts = Loadable(() => import(/* webpackChunkName: "mobile-posts" */'./Posts'), {
-  render(Component, loading, props) {
-    const { store } = props;
+  render(renderProps) {
+    const { Component, ownProps } = renderProps;
+    const { store } = ownProps;
+
     store.replaceReducer(nextReducer());
-    // console.log('replace reducer.');
-    return <Component />;
+    return (<Component {...ownProps} />);
   },
 });
 

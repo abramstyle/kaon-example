@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import Helmet from 'react-helmet';
 
 import PostList from '../../components/PostList';
+import Wrapper from '../../components/Wrapper';
 
 import commentsImg from './comments.jpeg';
 import Panel from '../../components/Panel';
@@ -56,19 +57,20 @@ class Comments extends Component {
           title="Comments"
           background={background}
         >
-          <Helmet>
-            <html lang="zh-CH" country="cn" />
-            <title>Comments - Cybertron</title>
-            <meta name="keywords" content="posts,cybertron,isomorphic" />
-            <meta name="description" content="cybertron renders your components from server." />
-          </Helmet>
-          <PostList posts={comments} />
-          <button
-            styleName="load-more"
-            onClick={this.handleClickLoadMore}
-          >Load more comments...
-          </button>
-
+          <Wrapper>
+            <Helmet>
+              <html lang="zh-CH" country="cn" />
+              <title>Comments - Cybertron</title>
+              <meta name="keywords" content="posts,cybertron,isomorphic" />
+              <meta name="description" content="cybertron renders your components from server." />
+            </Helmet>
+            <PostList posts={comments} />
+            <button
+              styleName="load-more"
+              onClick={this.handleClickLoadMore}
+            >Load more comments...
+            </button>
+          </Wrapper>
         </Panel>
       </div>
     );

@@ -4,6 +4,8 @@
   margin-top: 20px;
   padding: 20px 0;
   border-top: 1px solid $disabled;
+}
+.footer-container {
   display: flex;
   justify-content: space-between;
   .brand {

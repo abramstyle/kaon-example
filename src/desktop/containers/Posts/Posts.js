@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import Helmet from 'react-helmet';
 import Panel from '../../components/Panel';
 import PostList from '../../components/PostList';
+import Wrapper from '../../components/Wrapper';
 
 import postImg from './posts.jpg';
 import * as postActionCreators from './actions/posts';
@@ -57,18 +58,20 @@ class Posts extends Component {
           title="Posts"
           background={background}
         >
-          <Helmet>
-            <html lang="zh-CH" country="cn" />
-            <title>Posts - Cybertron</title>
-            <meta name="keywords" content="posts,cybertron,isomorphic" />
-            <meta name="description" content="cybertron renders your components from server." />
-          </Helmet>
-          <PostList posts={posts} />
-          <button
-            styleName="load-more"
-            onClick={this.handleClickLoadMore}
-          >Load more posts...
-          </button>
+          <Wrapper>
+            <Helmet>
+              <html lang="zh-CH" country="cn" />
+              <title>Posts - Cybertron</title>
+              <meta name="keywords" content="posts,cybertron,isomorphic" />
+              <meta name="description" content="cybertron renders your components from server." />
+            </Helmet>
+            <PostList posts={posts} />
+            <button
+              styleName="load-more"
+              onClick={this.handleClickLoadMore}
+            >Load more posts...
+            </button>
+          </Wrapper>
         </Panel>
       </div>
     );

@@ -8,12 +8,12 @@ import generateReducers from '../../../reducers';
 const nextReducer = generateReducers(reducers);
 
 const LoadableComments = Loadable(() => import(/* webpackChunkName: "mobile-comments" */'./Comments'), {
-  render(loaded, loading, props) {
-    const { store } = props;
+  render(renderProps) {
+    const { Component, ownProps } = renderProps;
+    const { store } = ownProps;
+
     store.replaceReducer(nextReducer());
-    // console.log('replace reducer.');
-    const Component = loaded.default;
-    return <Component />;
+    return (<Component {...ownProps} />);
   },
 });
 
