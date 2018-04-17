@@ -1,12 +1,17 @@
 import React from 'react';
 
+import Wrapper from '../Wrapper';
 import './style.css';
 
 function Footer() {
   return (
     <div styleName="footer">
-      <div styleName="brand">Kaon Example</div>
-      <div styleName="copyright">&copy;  kaon-example</div>
+      <Wrapper>
+        <div styleName="footer-container">
+          <div styleName="brand">Kaon Example</div>
+          <div styleName="copyright">&copy;  kaon-example</div>
+        </div>
+      </Wrapper>
     </div>
   );
 }

@@ -11,6 +11,10 @@ const routes = [
         component: Posts,
         exact: true,
       }, {
+        path: '/posts',
+        component: Posts,
+        exact: true,
+      }, {
         path: '/comments',
         component: Comments,
         exact: true,

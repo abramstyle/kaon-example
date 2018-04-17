@@ -21,7 +21,7 @@ function PostItem(props) {
       </Link>
       <div styleName="meta">
         <div styleName="comments item">
-          <i className="ion-android-chat" />
+          <i className="ion-ios-chatbubbles" />
           <div styleName="text">
             {post.get('comments')}
           </div>

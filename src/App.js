@@ -6,7 +6,7 @@ import { hot } from 'react-hot-loader';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import 'ionicons/dist/css/ionicons.min.css';
-import 'normalize.css';
+
 import getRoutes from './routes';
 import getPlatform from './helpers/platform';
 

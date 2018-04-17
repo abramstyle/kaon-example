@@ -1,11 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import loadable from 'loadable-components';
 import * as postActionCreators from './actions/posts';
 import reducers from './reducers';
 import generateReducers from '../../../reducers';
-import LoadablePosts from './loadable';
 
 const nextReducer = generateReducers(reducers);
+
+const LoadablePosts = loadable(() => import(/* webpackChunkName: "posts" */'./Posts'), {
+  render(renderProps) {
+    const {
+      Component, loading, ownProps,
+    } = renderProps;
+    const { store } = ownProps;
+    if (loading) {
+      return <div className="loading">Loading Desktop Posts...</div>;
+    }
+
+    store.replaceReducer(nextReducer());
+    return (<Component {...ownProps} />);
+  },
+});
 
 function Posts(props, context) {
   const { store } = context;
