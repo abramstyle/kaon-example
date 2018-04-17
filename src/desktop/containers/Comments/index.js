@@ -11,10 +11,10 @@ const LoadableComments = loadable(() => import(/* webpackChunkName: "comments" *
   render(renderProps) {
     const { Component, loading, ownProps } = renderProps;
     const { store } = ownProps;
-    // if (loading) {
-    //   return <div className="loading">Loading Desktop Comments...</div>;
-    // }
-    //
+    if (loading) {
+      return <div className="loading">Loading Desktop Comments...</div>;
+    }
+
     store.replaceReducer(nextReducer());
     return (<Component {...ownProps} />);
   },
