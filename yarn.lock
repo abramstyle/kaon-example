@@ -4849,9 +4849,9 @@ jsx-ast-utils@^2.0.0, jsx-ast-utils@^2.0.1:
   dependencies:
     array-includes "^3.0.3"
 
-kaonjs@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.npmjs.org/kaonjs/-/kaonjs-1.2.1.tgz#91fd698462f9ef9021fc017ae825a1b2c8a5ee57"
+kaonjs@^1.3.14:
+  version "1.3.14"
+  resolved "https://registry.npmjs.org/kaonjs/-/kaonjs-1.3.14.tgz#0ba799123a1d4e34bb8351b3cb8067a4d262b60d"
   dependencies:
     "@abramstyle/utils" "^0.8.15"
     autoprefixer "^7.2.3"
@@ -4892,7 +4892,7 @@ kaonjs@^1.2.1:
     koa-favicon "^2.0.0"
     koa-static "^4.0.2"
     koa-views "^6.1.4"
-    loadable-components "^1.3.0"
+    loadable-components "^1.4.0"
     lodash "^4.17.5"
     optimize-css-assets-webpack-plugin "^4.0.0"
     postcss "^6.0.19"
@@ -4907,6 +4907,7 @@ kaonjs@^1.2.1:
     react-router-config "^1.0.0-beta.4"
     react-router-dom "^4.2.2"
     redux "^3.7.2"
+    serialize-javascript "^1.5.0"
     style-loader "^0.20.3"
     uglifyjs-webpack-plugin "^1.2.3"
     url-loader "^1.0.1"
@@ -5119,9 +5120,16 @@ load-json-file@^2.0.0:
     pify "^2.0.0"
     strip-bom "^3.0.0"
 
-loadable-components@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.npmjs.org/loadable-components/-/loadable-components-1.3.0.tgz#232edc7432488d5d45a6c02baa7880d2047ec78b"
+loadable-components@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.npmjs.org/loadable-components/-/loadable-components-1.4.0.tgz#58c93995090f165967ab2f2fffa4daaec837d1c6"
+  dependencies:
+    babel-plugin-syntax-dynamic-import "^6.18.0"
+    hoist-non-react-statics "^2.5.0"
+
+loadable-components@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.npmjs.org/loadable-components/-/loadable-components-2.2.2.tgz#0362f5d6d0607f5d9bcc7932c7cdba6f256cbd46"
   dependencies:
     babel-plugin-syntax-dynamic-import "^6.18.0"
     hoist-non-react-statics "^2.5.0"
@@ -7422,6 +7430,10 @@ sentence-case@^2.1.0:
 serialize-javascript@^1.4.0:
   version "1.4.0"
   resolved "https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-1.4.0.tgz#7c958514db6ac2443a8abc062dc9f7886a7f6005"
+
+serialize-javascript@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-1.5.0.tgz#1aa336162c88a890ddad5384baebc93a655161fe"
 
 serve-index@^1.7.2:
   version "1.9.1"

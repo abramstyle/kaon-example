@@ -9,8 +9,11 @@ const nextReducer = generateReducers(reducers);
 
 const LoadableComments = Loadable(() => import(/* webpackChunkName: "mobile-comments" */'./Comments'), {
   render(renderProps) {
-    const { Component, ownProps } = renderProps;
+    const { Component, ownProps, loading } = renderProps;
     const { store } = ownProps;
+    if (loading) {
+      return <div className="loading">Loading Desktop Posts...</div>;
+    }
 
     store.replaceReducer(nextReducer());
     return (<Component {...ownProps} />);

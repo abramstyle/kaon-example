@@ -9,9 +9,12 @@ const nextReducer = generateReducers(reducers);
 
 const LoadablePosts = Loadable(() => import(/* webpackChunkName: "mobile-posts" */'./Posts'), {
   render(renderProps) {
-    const { Component, ownProps } = renderProps;
+    const { Component, ownProps, loading } = renderProps;
     const { store } = ownProps;
 
+    if (loading) {
+      return <div className="loading">Loading Desktop Posts...</div>;
+    }
     store.replaceReducer(nextReducer());
     return (<Component {...ownProps} />);
   },
