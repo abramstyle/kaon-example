@@ -24,7 +24,7 @@
     "immutable": "^3.8.2",
     "ionicons": "^3.0.0",
     "isomorphic-fetch": "^2.2.1",
-    "kaonjs": "^1.3.14",
+    "kaonjs": "^1.3.17",
     "koa": "^2.5.0",
     "koa-bodyparser": "^4.2.0",
     "koa-favicon": "^2.0.0",

@@ -21,7 +21,6 @@ const propTypes = {
 class Posts extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
 
     this.handleClickLoadMore = this.handleClickLoadMore.bind(this);
   }

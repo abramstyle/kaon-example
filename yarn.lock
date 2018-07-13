@@ -3733,9 +3733,13 @@ hoek@4.x.x:
   version "4.2.1"
   resolved "https://registry.npmjs.org/hoek/-/hoek-4.2.1.tgz#9634502aa12c445dd5a7c5734b572bb8738aacbb"
 
-hoist-non-react-statics@^2.3.0, hoist-non-react-statics@^2.5.0:
+hoist-non-react-statics@^2.3.0:
   version "2.5.0"
   resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-2.5.0.tgz#d2ca2dfc19c5a91c5a6615ce8e564ef0347e2a40"
+
+hoist-non-react-statics@^2.5.0:
+  version "2.5.5"
+  resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
 
 home-or-tmp@^2.0.0:
   version "2.0.0"
@@ -4849,9 +4853,9 @@ jsx-ast-utils@^2.0.0, jsx-ast-utils@^2.0.1:
   dependencies:
     array-includes "^3.0.3"
 
-kaonjs@^1.3.14:
-  version "1.3.14"
-  resolved "https://registry.npmjs.org/kaonjs/-/kaonjs-1.3.14.tgz#0ba799123a1d4e34bb8351b3cb8067a4d262b60d"
+kaonjs@^1.3.17:
+  version "1.3.17"
+  resolved "https://registry.npmjs.org/kaonjs/-/kaonjs-1.3.17.tgz#54b7c3095e5782436e0eb0bf2988bf9bdf2e8c9b"
   dependencies:
     "@abramstyle/utils" "^0.8.15"
     autoprefixer "^7.2.3"
@@ -4892,7 +4896,7 @@ kaonjs@^1.3.14:
     koa-favicon "^2.0.0"
     koa-static "^4.0.2"
     koa-views "^6.1.4"
-    loadable-components "^1.4.0"
+    loadable-components "^2.2.2"
     lodash "^4.17.5"
     optimize-css-assets-webpack-plugin "^4.0.0"
     postcss "^6.0.19"
@@ -5119,13 +5123,6 @@ load-json-file@^2.0.0:
     parse-json "^2.2.0"
     pify "^2.0.0"
     strip-bom "^3.0.0"
-
-loadable-components@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.npmjs.org/loadable-components/-/loadable-components-1.4.0.tgz#58c93995090f165967ab2f2fffa4daaec837d1c6"
-  dependencies:
-    babel-plugin-syntax-dynamic-import "^6.18.0"
-    hoist-non-react-statics "^2.5.0"
 
 loadable-components@^2.2.2:
   version "2.2.2"
