@@ -6,38 +6,34 @@ import { bindActionCreators } from 'redux';
 
 import Helmet from 'react-helmet';
 import Panel from '../../components/Panel';
-import PostList from '../../components/PostList';
+import Post from '../../components/Post';
 import Wrapper from '../../components/Wrapper';
 
-import postImg from './posts.jpg';
-import * as postsActionCreators from './actions/posts';
+import { LOADING_STATES } from '../../../constants';
+import postImg from '../Posts/posts.jpg';
+import * as postActionCreators from './actions/post';
 import './style.css';
 
 const propTypes = {
-  postsActions: PropTypes.object.isRequired,
-  posts: PropTypes.object.isRequired,
+  // postActions: PropTypes.object.isRequired,
+  post: PropTypes.object.isRequired,
 };
 
-class Posts extends Component {
-  constructor(props) {
-    super(props);
-
-    this.handleClickLoadMore = this.handleClickLoadMore.bind(this);
-  }
-
-  loadPosts() {
-    const { postsActions, posts } = this.props;
-    return postsActions.fetchPosts({
-      _page: posts.get('page'),
-      _limit: 5,
-    });
+class PostDetail extends Component {
+  loadPost() {
+    // const { postActions, posts, routing } = this.props;
+    console.log('routing: ', this.props);
   }
 
   componentDidMount() {
-    const { posts } = this.props;
-    if (posts.get('page') === 1) {
-      this.loadPosts();
+    const { post } = this.props;
+    if (post.loadingState !== LOADING_STATES.SUCCESS) {
+      this.loadPost();
     }
+  }
+
+  componentDidUpdate() {
+    console.log('update...');
   }
 
   componentDidCatch(err, info) {
@@ -51,14 +47,14 @@ class Posts extends Component {
 
 
   render() {
-    const { posts } = this.props;
+    const { post } = this.props;
     const background = (
       <img src={postImg} alt="Posts" />
     );
     return (
       <div className="posts">
         <Panel
-          title="Posts"
+          title="Post"
           background={background}
         >
           <Wrapper>
@@ -68,12 +64,7 @@ class Posts extends Component {
               <meta name="keywords" content="posts,cybertron,isomorphic" />
               <meta name="description" content="cybertron renders your components from server." />
             </Helmet>
-            <PostList posts={posts} />
-            <button
-              styleName="load-more"
-              onClick={this.handleClickLoadMore}
-            >Load more posts...
-            </button>
+            <Post post={post.get('post')} />
           </Wrapper>
         </Panel>
       </div>
@@ -83,18 +74,18 @@ class Posts extends Component {
 
 
 function mapStateToProps(state) {
-  const { posts } = state;
+  const { post } = state;
   return {
-    posts,
+    post,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    postsActions: bindActionCreators(postsActionCreators, dispatch),
+    postActions: bindActionCreators(postActionCreators, dispatch),
   };
 }
 
-Posts.propTypes = propTypes;
+PostDetail.propTypes = propTypes;
 
-export default connect(mapStateToProps, mapDispatchToProps)(Posts);
+export default connect(mapStateToProps, mapDispatchToProps)(PostDetail);

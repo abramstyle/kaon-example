@@ -1,5 +1,6 @@
 require('dotenv').config();
-const path = require('path');
+const { resolve } = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
@@ -14,12 +15,24 @@ const getConfig = () => ({
   },
   module: {
     rules: [{
+      test: /node_modules.*\.css$/,
+      use: [{
+      //   loader: MiniCssExtractPlugin.loader,
+      // }, {
+        loader: 'css-loader',
+        options: {
+          // sourceMap: true,
+          minimize: false,
+          modules: false,
+          importLoaders: 1,
+          localIdentName: '[local]',
+        },
+      }],
+    }, {
       test: /\.css$/,
       exclude: /node_modules/,
-      // use: ExtractTextPlugin.extract({
-      //   fallback: 'style-loader',
       use: [{
-        loader: 'style-loader',
+        loader: MiniCssExtractPlugin.loader,
       }, {
         loader: 'css-loader',
         options: {
@@ -33,23 +46,8 @@ const getConfig = () => ({
         loader: 'postcss-loader',
         options: {
           config: {
-            path: path.resolve(__dirname, '../postcss.config.js'),
+            path: resolve(__dirname, '../postcss.config.js'),
           },
-        },
-      }],
-      // }),
-    }, {
-      test: /node_modules.*\.css$/,
-      use: [{
-        loader: 'style-loader',
-      }, {
-        loader: 'css-loader',
-        options: {
-          sourceMap: false,
-          minimize: true,
-          modules: true,
-          importLoaders: 1,
-          localIdentName: '[local]',
         },
       }],
     }],

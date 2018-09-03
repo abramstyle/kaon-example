@@ -11,7 +11,6 @@ function getRoutes(ctx) {
     md = new MobileDetect(userAgent);
   }
   return md.mobile() ? mobileRoutes : desktopRoutes;
-  return desktopRoutes;
 }
 
 export default getRoutes;

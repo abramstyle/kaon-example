@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import loadable from 'loadable-components';
-import * as postActionCreators from './actions/posts';
+import * as postsActionCreators from './actions/posts';
 import reducers from './reducers';
 import generateReducers from '../../../reducers';
 
@@ -31,7 +31,7 @@ Posts.contextTypes = {
   store: PropTypes.object,
 };
 
-Posts.getInitialProps = dispatch => dispatch(postActionCreators.fetchPosts({
+Posts.getInitialProps = dispatch => dispatch(postsActionCreators.fetchPosts({
   _page: 1,
   _limit: 5,
 }));

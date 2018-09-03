@@ -1,5 +1,6 @@
 import App from '../desktop/containers/App';
 import Posts from '../desktop/containers/Posts';
+import PostDetail from '../desktop/containers/PostDetail';
 import Comments from '../desktop/containers/Comments';
 import Profile from '../desktop/containers/Profile';
 
@@ -15,6 +16,11 @@ const routes = [
       {
         path: '/posts',
         component: Posts,
+        exact: true,
+      },
+      {
+        path: '/posts/:id',
+        component: PostDetail,
         exact: true,
       },
       {
