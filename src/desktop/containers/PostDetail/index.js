@@ -22,6 +22,10 @@ const LoadablePost = loadable(() => import(/* webpackChunkName: "posts" */'./Pos
   },
 });
 
+const propTypes = {
+
+};
+
 function Post(props, context) {
   const { store } = context;
   const { match: { params } } = props;
