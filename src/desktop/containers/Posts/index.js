@@ -38,4 +38,4 @@ Posts.getInitialProps = dispatch => dispatch(postsActionCreators.fetchPosts({
 
 Posts.nextReducer = nextReducer;
 
-module.exports = Posts;
+export default Posts;
