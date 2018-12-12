@@ -3,7 +3,7 @@ const Router = require('koa-router');
 function applyRoutes(app) {
   const router = new Router();
 
-  router.get('/', async (ctx) => {
+  router.get('/api', async (ctx) => {
     ctx.body = 'hello world.';
   });
 

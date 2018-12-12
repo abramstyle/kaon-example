@@ -27,7 +27,8 @@ class PostDetail extends Component {
 
   componentDidMount() {
     const { post } = this.props;
-    if (post.loadingState !== LOADING_STATES.SUCCESS) {
+    console.log(post.get('loadingState'));
+    if (post.get('loadingState') !== LOADING_STATES.SUCCESS) {
       this.loadPost();
     }
   }
@@ -60,7 +61,7 @@ class PostDetail extends Component {
           <Wrapper>
             <Helmet>
               <html lang="zh-CH" country="cn" />
-              <title>Posts - Cybertron</title>
+              <title>Post - Cybertron</title>
               <meta name="keywords" content="posts,cybertron,isomorphic" />
               <meta name="description" content="cybertron renders your components from server." />
             </Helmet>

@@ -1,40 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import loadable from 'loadable-components';
+import loadable from '@loadable/component';
 import * as postActionCreators from './actions/post';
 import reducers from './reducers';
 import generateReducers from '../../../reducers';
 
+import store from '../../../store';
+
 const nextReducer = generateReducers(reducers);
+store.replaceReducer(nextReducer());
 
-const LoadablePost = loadable(() => import(/* webpackChunkName: "posts" */'./PostDetail'), {
-  render(renderProps) {
-    const {
-      Component, loading, ownProps,
-    } = renderProps;
-    const { store } = ownProps;
-    if (loading) {
-      return <div className="loading">Loading Desktop Posts...</div>;
-    }
-
-    store.replaceReducer(nextReducer());
-    return (<Component {...ownProps} />);
-  },
-});
-
-const propTypes = {
-
-};
-
-function Post(props, context) {
-  const { store } = context;
-  const { match: { params } } = props;
-  return <LoadablePost store={store} />;
-}
-
-Post.contextTypes = {
-  store: PropTypes.object,
-};
+const Post = loadable(() => import(/* webpackChunkName: "posts" */'./PostDetail'));
 
 Post.getInitialProps = (dispatch, params) => dispatch(postActionCreators.fetchPost(params.id));
 

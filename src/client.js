@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { loadComponents } from 'loadable-components';
+import { loadableReady } from '@loadable/component';
 import { Provider } from 'react-redux';
 
 import store from './store';
@@ -9,7 +9,7 @@ import App from './App';
 
 const render = () => {
   // Loadable.preloadReady().then(() => {
-  loadComponents().then(() => {
+  loadableReady(() => {
     ReactDOM.hydrate(
       <Provider store={store}>
         <App />

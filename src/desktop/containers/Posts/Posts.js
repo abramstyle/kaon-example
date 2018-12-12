@@ -72,7 +72,7 @@ class Posts extends Component {
             <button
               styleName="load-more"
               onClick={this.handleClickLoadMore}
-            >Load more posts...
+            >Load more posts..
             </button>
           </Wrapper>
         </Panel>
