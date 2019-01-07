@@ -7,7 +7,6 @@ import { bindActionCreators } from 'redux';
 import Helmet from 'react-helmet';
 import Panel from '../../components/Panel';
 import Post from '../../components/Post';
-import Wrapper from '../../components/Wrapper';
 
 import { LOADING_STATES } from '../../../constants';
 import postImg from '../Posts/posts.jpg';
@@ -62,15 +61,13 @@ class PostDetail extends Component {
           title="Post"
           background={background}
         >
-          <Wrapper>
-            <Helmet>
-              <html lang="zh-CH" country="cn" />
-              <title>Post - Cybertron</title>
-              <meta name="keywords" content="posts,cybertron,isomorphic" />
-              <meta name="description" content="cybertron renders your components from server." />
-            </Helmet>
-            <Post post={post.get('post')} />
-          </Wrapper>
+          <Helmet>
+            <html lang="zh-CH" country="cn" />
+            <title>Post - Cybertron</title>
+            <meta name="keywords" content="posts,cybertron,isomorphic" />
+            <meta name="description" content="cybertron renders your components from server." />
+          </Helmet>
+          <Post post={post.get('post')} />
         </Panel>
       </div>
     );
