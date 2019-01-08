@@ -17,8 +17,8 @@ const getConfig = () => ({
     rules: [{
       test: /node_modules.*\.css$/,
       use: [{
-      //   loader: MiniCssExtractPlugin.loader,
-      // }, {
+        loader: MiniCssExtractPlugin.loader,
+      }, {
         loader: 'css-loader',
         options: {
           // sourceMap: true,
