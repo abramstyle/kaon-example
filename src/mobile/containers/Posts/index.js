@@ -7,7 +7,7 @@ import generateReducers from '../../../reducers';
 
 const nextReducer = generateReducers(reducers);
 
-const LoadablePosts = Loadable(() => import(/* webpackChunkName: "mobile-posts" */'./Posts'), {
+const LoadablePosts = Loadable(() => import(/* webpackChunkName: "mobile-post" */'./Posts'), {
   render(renderProps) {
     const { Component, ownProps, loading } = renderProps;
     const { store } = ownProps;

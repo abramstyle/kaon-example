@@ -8,7 +8,7 @@ import store from '../../../store';
 const nextReducer = generateReducers(reducers);
 store.replaceReducer(nextReducer());
 
-const Post = loadable(() => import(/* webpackChunkName: "posts" */'./PostDetail'));
+const Post = loadable(() => import(/* webpackChunkName: "mobile-posts" */'./PostDetail'));
 
 Post.getInitialProps = (dispatch, params) => dispatch(postActionCreators.fetchPost(params.id));
 

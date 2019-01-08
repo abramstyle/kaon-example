@@ -22,9 +22,20 @@ function db() {
     });
   }
 
+  const profile = {
+    id: faker.random.uuid(),
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    email: faker.internet.email(),
+    avatar: faker.image.avatar(),
+    description: faker.random.words(10, 20),
+    username: faker.internet.userName(),
+  };
+
   return {
     posts,
     comments,
+    profile,
   };
 }
 
