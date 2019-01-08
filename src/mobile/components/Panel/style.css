@@ -2,6 +2,8 @@
   .header {
     display: flex;
     position: relative;
+    width: 100%;
+    overflow: hidden;
     &.has-background {
       height: 200px;
     }

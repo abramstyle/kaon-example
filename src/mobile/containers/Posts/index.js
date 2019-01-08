@@ -1,40 +1,20 @@
-import React from 'react';
-import Loadable from '@loadable/component';
-import PropTypes from 'prop-types';
-import * as postActionCreators from './actions/posts';
+import loadable from '@loadable/component';
+import * as postsActionCreators from './actions/posts';
 import reducers from './reducers';
 import generateReducers from '../../../reducers';
 
+import store from '../../../store';
+
 const nextReducer = generateReducers(reducers);
+store.replaceReducer(nextReducer());
 
-const LoadablePosts = Loadable(() => import(/* webpackChunkName: "mobile-post" */'./Posts'), {
-  render(renderProps) {
-    const { Component, ownProps, loading } = renderProps;
-    const { store } = ownProps;
+const Posts = loadable(() => import(/* webpackChunkName: "posts" */'./Posts'));
 
-    if (loading) {
-      return <div className="loading">Loading Desktop Posts...</div>;
-    }
-    store.replaceReducer(nextReducer());
-    return (<Component {...ownProps} />);
-  },
-});
-
-function Posts(props, context) {
-  const { store } = context;
-  return <LoadablePosts store={store} />;
-}
-
-Posts.contextTypes = {
-  store: PropTypes.object,
-};
-
-Posts.getInitialProps = dispatch => dispatch(postActionCreators.fetchPosts({
+Posts.getInitialProps = dispatch => dispatch(postsActionCreators.fetchPosts({
   _page: 1,
   _limit: 5,
 }));
 
 Posts.nextReducer = nextReducer;
-
 
 export default Posts;

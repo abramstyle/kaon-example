@@ -27,6 +27,10 @@ class Header extends Component {
     });
   }
 
+  handleClickLink = () => {
+    this.toggleNavState();
+  }
+
   render() {
     const { show } = this.state;
     const toggleClass = classnames('toggle', { show });
@@ -46,9 +50,9 @@ class Header extends Component {
               <Logo />
             </div>
             <ul>
-              <li><Link to="/posts">posts</Link></li>
-              <li><Link to="/comments">comments</Link></li>
-              <li><Link to="/profile">profile</Link></li>
+              <li><Link onClick={this.handleClickLink} to="/posts">posts</Link></li>
+              <li><Link onClick={this.handleClickLink} to="/comments">comments</Link></li>
+              <li><Link onClick={this.handleClickLink} to="/profile">profile</Link></li>
             </ul>
           </div>
         </nav>

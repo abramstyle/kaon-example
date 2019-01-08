@@ -25,24 +25,13 @@ class PostDetail extends Component {
     const { params: { id } } = match;
 
     postActions.fetchPost(id);
-    console.log('routing: ', this.props);
   }
 
   componentDidMount() {
     const { post } = this.props;
-    console.log(post.get('loadingState'));
     if (post.get('loadingState') !== LOADING_STATES.SUCCESS) {
       this.loadPost();
     }
-  }
-
-  componentDidUpdate() {
-    console.log('update...');
-  }
-
-  componentDidCatch(err, info) {
-    console.log('catch error: ', err);
-    console.log('catdh info: ', info);
   }
 
   handleClickLoadMore() {

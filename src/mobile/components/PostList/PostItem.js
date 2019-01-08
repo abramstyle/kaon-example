@@ -10,7 +10,7 @@ const propTypes = {
 
 function PostItem(props) {
   const { post } = props;
-  const postTarget = `/post/${post.get('id')}`;
+  const postTarget = `/posts/${post.get('id')}`;
   return (
     <div styleName="post">
       <Link

@@ -1,4 +1,7 @@
 .profile-page {
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
     header {
         position: relative;
         width: 100%;

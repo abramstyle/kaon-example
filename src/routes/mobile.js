@@ -1,8 +1,8 @@
 import App from '../mobile/containers/App';
 import Posts from '../mobile/containers/Posts';
 import Comments from '../mobile/containers/Comments';
-import Post from '../mobile/containers/PostDetail';
 import Profile from '../mobile/containers/Profile';
+import PostDetail from '../mobile/containers/PostDetail';
 
 const routes = [
   {
@@ -18,7 +18,7 @@ const routes = [
         exact: true,
       }, {
         path: '/posts/:id',
-        component: Post,
+        component: PostDetail,
         exact: true,
       }, {
         path: '/profile',
